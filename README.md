@@ -1,4 +1,4 @@
-# <img height=40 style="margin:0 0 -5px 0" src="docs/finnhub-logo.png"/> Finnhub API (Kotlin Multiplatform)
+# <img height=40 style="margin:0 0 -7px 0" src="docs/finnhub-logo.png"/> Finnhub API <i>(Kotlin Multiplatform)</i>
 
 [![Kotlin Beta](https://kotl.in/badges/beta.svg)](https://kotlinlang.org/docs/components-stability.html)
 [![Kotlin](https://img.shields.io/badge/kotlin-1.8.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
@@ -18,3 +18,33 @@ endpoints is not up-to-date.</i>
 ### Documentation
 
 See official [Finnhub API Docs](https://finnhub.io/docs/api)
+
+### Setup in multiplatform project / module
+
+Add the finnhub-api to your multiplatform module `build.gradle.kts`.
+
+```kotlin
+val finnhubApiVersion = "LATEST_FINNHUB_API_VERSION"
+sourceSets {
+    val commonMain by getting {
+        dependencies {
+            implementation("com.hibernix.finnhub:finnhub-api:$finnhubApiVersion") // for REST API
+            implementation("com.hibernix.finnhub:finnhub-websocket:$finnhubApiVersion") // for real-time updates
+        }
+    }
+}
+```
+
+### Setup in single platform project / module
+
+Add the finnhub-api to your common module.
+
+```kotlin
+val finnhubApiVersion = "LATEST_FINNHUB_API_VERSION"
+dependencies {
+    implementation("com.hibernix.finnhub:finnhub-api-<platform>:$finnhubApiVersion") // for REST API
+    implementation("com.hibernix.finnhub:finnhub-websocket-<platform>:$finnhubApiVersion") // for real-time updates
+}
+```
+
+where `<platform>` is one of `jvm`, `android`, `ios`, `js`, depending on the platform you are using.

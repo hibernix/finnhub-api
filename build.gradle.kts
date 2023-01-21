@@ -1,5 +1,6 @@
 plugins {
     kotlin("multiplatform") apply false
+    id("org.jetbrains.dokka") version "1.7.20"
     id("com.vanniktech.maven.publish") version "0.23.2" apply false
 }
 
@@ -32,4 +33,5 @@ subprojects {
         mavenLocal()
         mavenCentral()
     }
+
 }

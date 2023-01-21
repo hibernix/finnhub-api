@@ -2,6 +2,7 @@ plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization") version "1.8.0"
     id("com.google.devtools.ksp") version "1.8.0-1.0.8"
+    id("org.jetbrains.dokka")
     id("com.vanniktech.maven.publish")
 }
 
