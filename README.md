@@ -1,4 +1,4 @@
-# <img height=40 style="margin:0 0 -7px 0" src="docs/finnhub-logo.png"/> Finnhub API <i>(Kotlin Multiplatform)</i>
+# <img height=40 style="margin:0 0 -7px 0" src="docs/finnhub-logo.png"/> Finnhub API
 
 [![Kotlin Beta](https://kotl.in/badges/beta.svg)](https://kotlinlang.org/docs/components-stability.html)
 [![Kotlin](https://img.shields.io/badge/kotlin-1.8.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
@@ -9,22 +9,35 @@
 [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
 
 Unofficial kotlin-multiplatform library for [Finnhub API](https://finnhub.io).
-This library supports kotlin coroutines and WebSocket API.
-Supported platforms for now are JVM, Android, IOS and web (JS).
+Unlike the [official](https://github.com/Finnhub-Stock-API/finnhub-kotlin)  kotlin library, this one supports also
+WebSockets for real-time updates, uses kotlin coroutines and can be used on multiple platforms
+(currently supported for now are JVM (java), Android, IOS and web (JS / nodeJS)).
 
-<i><b>Note:</b> Not all endpoints were tested yet, please feel free to open an issue or pull request, if any of the
-endpoints is not up-to-date.</i>
+<i><b>Note:</b> Not all endpoints were tested yet, especially the premium ones, please feel free to open an issue
+or pull request, if any of the endpoints is not working or up-to-date.</i>
 
-### Documentation
+## Setup
 
-See official [Finnhub API Docs](https://finnhub.io/docs/api)
+### Single platform project / module
 
-### Setup in multiplatform project / module
+Add the finnhub-api to your module.
+
+```kotlin
+val finnhubApiVersion = "0.1.0-beta01"
+dependencies {
+    implementation("com.hibernix.finnhub:finnhub-api-<platform>:$finnhubApiVersion") // for REST API
+    implementation("com.hibernix.finnhub:finnhub-websocket-<platform>:$finnhubApiVersion") // for real-time updates
+}
+```
+
+where `<platform>` is one of `jvm`, `android`, `ios`, `js`, depending on the platform you are using.
+
+### Multiplatform project / module
 
 Add the finnhub-api to your multiplatform module `build.gradle.kts`.
 
 ```kotlin
-val finnhubApiVersion = "LATEST_FINNHUB_API_VERSION"
+val finnhubApiVersion = "0.1.0-beta01"
 sourceSets {
     val commonMain by getting {
         dependencies {
@@ -35,16 +48,23 @@ sourceSets {
 }
 ```
 
-### Setup in single platform project / module
-
-Add the finnhub-api to your common module.
+## Usage
 
 ```kotlin
-val finnhubApiVersion = "LATEST_FINNHUB_API_VERSION"
-dependencies {
-    implementation("com.hibernix.finnhub:finnhub-api-<platform>:$finnhubApiVersion") // for REST API
-    implementation("com.hibernix.finnhub:finnhub-websocket-<platform>:$finnhubApiVersion") // for real-time updates
+
+val finnhubApi = FinnhubApi.create(apiKey = "<your finnhub API key>")
+
+scope.launch {
+    val timeSeriesBars = finnhubApi.cryptoCandles(
+        symbol = "BINANCE:BTCUSDT",
+        resolution = "D",
+        from = LocalDate.parse("2022-01-01").atStartOfDayIn(Timezone.UTC),
+        to = LocalDate.parse("2022-01-05").atStartOfDayIn(Timezone.UTC),
+    )
+    timeSeriesBars.forEach { ... }
 }
 ```
 
-where `<platform>` is one of `jvm`, `android`, `ios`, `js`, depending on the platform you are using.
+## Documentation
+
+See official [Finnhub API Docs](https://finnhub.io/docs/api)
