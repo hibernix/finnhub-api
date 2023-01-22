@@ -2,10 +2,10 @@ package com.hibernix.finnhub.api
 
 import com.hibernix.finnhub.model.AggregateIndicators
 import com.hibernix.finnhub.model.BasicFinancials
-import com.hibernix.finnhub.model.BondCandles
 import com.hibernix.finnhub.model.BondProfile
 import com.hibernix.finnhub.model.BondTickData
 import com.hibernix.finnhub.model.BondYieldCurve
+import com.hibernix.finnhub.model.Candles
 import com.hibernix.finnhub.model.CompanyESG
 import com.hibernix.finnhub.model.CompanyEarningsQualityScore
 import com.hibernix.finnhub.model.CompanyExecutive
@@ -14,7 +14,6 @@ import com.hibernix.finnhub.model.CompanyProfile
 import com.hibernix.finnhub.model.CompanyProfile2
 import com.hibernix.finnhub.model.CountryMetadata
 import com.hibernix.finnhub.model.CovidInfo
-import com.hibernix.finnhub.model.CryptoCandles
 import com.hibernix.finnhub.model.CryptoProfile
 import com.hibernix.finnhub.model.CryptoSymbol
 import com.hibernix.finnhub.model.Dividends
@@ -37,7 +36,6 @@ import com.hibernix.finnhub.model.FDAComitteeMeeting
 import com.hibernix.finnhub.model.Filing
 import com.hibernix.finnhub.model.FinancialStatements
 import com.hibernix.finnhub.model.FinancialsAsReported
-import com.hibernix.finnhub.model.ForexCandles
 import com.hibernix.finnhub.model.ForexSymbol
 import com.hibernix.finnhub.model.Forexrates
 import com.hibernix.finnhub.model.FundOwnership
@@ -82,7 +80,6 @@ import com.hibernix.finnhub.model.SectorMetric
 import com.hibernix.finnhub.model.SimilarityIndex
 import com.hibernix.finnhub.model.SocialSentiment
 import com.hibernix.finnhub.model.Split
-import com.hibernix.finnhub.model.StockCandles
 import com.hibernix.finnhub.model.StockSymbol
 import com.hibernix.finnhub.model.SupplyChainRelationships
 import com.hibernix.finnhub.model.SupportResistance
@@ -138,7 +135,7 @@ interface FinnhubApi {
         @Query("isin") isin: String,
         @Query("from") from: Long,
         @Query("to") to: Long
-    ): BondCandles
+    ): Candles
 
     /**
      * Bond Profile
@@ -406,7 +403,7 @@ interface FinnhubApi {
         @Query("resolution") resolution: String,
         @Query("from") from: Long,
         @Query("to") to: Long
-    ): CryptoCandles
+    ): Candles
 
     /**
      * Crypto Exchanges
@@ -647,7 +644,7 @@ interface FinnhubApi {
         @Query("resolution") resolution: String,
         @Query("from") from: Long,
         @Query("to") to: Long
-    ): ForexCandles
+    ): Candles
 
     /**
      * Forex Exchanges
@@ -1186,7 +1183,7 @@ interface FinnhubApi {
         @Query("resolution") resolution: String,
         @Query("from") from: Long,
         @Query("to") to: Long
-    ): StockCandles
+    ): Candles
 
     /**
      * Dividends

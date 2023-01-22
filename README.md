@@ -1,4 +1,4 @@
-# <img height=40 style="margin:0 0 -7px 0" src="docs/finnhub-logo.png"/> Finnhub API
+# <img height=40 style="margin:0 0 -5px 0" src="docs/finnhub-logo.png"/> Finnhub API&nbsp;&nbsp;<i style="color: #555555">(kotlin-multiplatform)</i>
 
 [![Kotlin Beta](https://kotl.in/badges/beta.svg)](https://kotlinlang.org/docs/components-stability.html)
 [![Kotlin](https://img.shields.io/badge/kotlin-1.8.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
@@ -20,21 +20,21 @@ or pull request, if any of the endpoints is not working or up-to-date.</i>
 
 ### Single platform project / module
 
-Add the finnhub-api to your module.
+Add the finnhub-api dependencies in `build.gradle.kts` in your module.
 
 ```kotlin
 val finnhubApiVersion = "0.1.0-beta01"
 dependencies {
-    implementation("com.hibernix.finnhub:finnhub-api-<platform>:$finnhubApiVersion") // for REST API
-    implementation("com.hibernix.finnhub:finnhub-websocket-<platform>:$finnhubApiVersion") // for real-time updates
+    implementation("com.hibernix.finnhub:finnhub-api-[PLATFORM]:$finnhubApiVersion") // for REST API
+    implementation("com.hibernix.finnhub:finnhub-websocket-[PLATFORM]:$finnhubApiVersion") // for real-time updates
 }
 ```
 
-where `<platform>` is one of `jvm`, `android`, `ios`, `js`, depending on the platform you are using.
+where `[PLATFORM]` is one of `jvm`, `android`, `ios`, `js`, depending on the platform you are using.
 
 ### Multiplatform project / module
 
-Add the finnhub-api to your multiplatform module `build.gradle.kts`.
+Add the finnhub-api dependencies in `build.gradle.kts` in your multiplatform module.
 
 ```kotlin
 val finnhubApiVersion = "0.1.0-beta01"
@@ -58,8 +58,8 @@ scope.launch {
     val timeSeriesBars = finnhubApi.cryptoCandles(
         symbol = "BINANCE:BTCUSDT",
         resolution = "D",
-        from = LocalDate.parse("2022-01-01").atStartOfDayIn(Timezone.UTC),
-        to = LocalDate.parse("2022-01-05").atStartOfDayIn(Timezone.UTC),
+        from = LocalDate.parse("2022-01-01").atStartOfDayIn(Timezone.UTC).epochSeconds,
+        to = LocalDate.parse("2022-01-05").atStartOfDayIn(Timezone.UTC).epochSeconds,
     )
     timeSeriesBars.forEach { ... }
 }

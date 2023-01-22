@@ -13,7 +13,7 @@ import kotlinx.serialization.Serializable
  * @property s Status of the response. This field can either be ok or no_data.
  */
 @Serializable
-data class StockCandles(
+data class Candles(
     @SerialName("o") var o: List<Float>? = null,
     @SerialName("h") var h: List<Float>? = null,
     @SerialName("l") var l: List<Float>? = null,
