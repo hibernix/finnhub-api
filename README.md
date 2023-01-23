@@ -106,4 +106,5 @@ Check some examples in samples folder (coming soon)
 
 - [ ] Error response transformation for REST API
 - [ ] Examples
+- [ ] Tests
 - [ ] WebSocket ping and auto-reconnect

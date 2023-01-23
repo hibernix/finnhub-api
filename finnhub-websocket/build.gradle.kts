@@ -12,8 +12,12 @@ val serializationVersion = extra["versions.serialization"]
 val datetimeVersion = extra["versions.datetime"]
 val ktorVersion = extra["versions.ktor"]
 
-group = property("project.group")!!
-version = property("project.version")!!
+val androidMinSdk = extra["project.android.minSdk"].toString().toInt()
+val androidCompileSdk = extra["project.android.compileSdk"].toString().toInt()
+val androidTargetSdk = extra["project.android.targetSdk"].toString().toInt()
+
+group = extra["project.group"].toString()
+version = extra["project.version"].toString()
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
@@ -27,7 +31,7 @@ detekt {
 kotlin {
     jvm()
     android {
-        publishLibraryVariants("release", "debug")
+        publishLibraryVariants("release"/*, "debug"*/)
     }
     js {
         browser()
@@ -46,11 +50,58 @@ kotlin {
     }
 }
 
+val dokkaOutputDir = "$buildDir/dokka"
+
+tasks.getByName<org.jetbrains.dokka.gradle.DokkaTask>("dokkaHtml") {
+    outputDirectory.set(file(dokkaOutputDir))
+}
+
+val deleteDokkaOutputDir by tasks.register<Delete>("deleteDokkaOutputDirectory") {
+    delete(dokkaOutputDir)
+}
+
+val javadocJar = tasks.register<Jar>("javadocJar") {
+    dependsOn(deleteDokkaOutputDir, tasks.dokkaHtml)
+    archiveClassifier.set("javadoc")
+    from(dokkaOutputDir)
+}
+
+publishing {
+    publications {
+        withType<MavenPublication> {
+            artifact(tasks["javadocJar"])
+
+            pom {
+                name.set(project.name)
+                description.set("Finnhub WebSocket Client")
+                url.set("https://github.com/hibernix/finnhub-api")
+
+                licenses {
+                    license {
+                        name.set("Apache License 2.0")
+                        url.set("https://github.com/Foso/Ktorfit/blob/master/LICENSE.txt")
+                    }
+                }
+                scm {
+                    url.set("https://github.com/hibernix/finnhub-api")
+                    connection.set("scm:git:git://github.com/hibernix/finnhub-api.git")
+                }
+                developers {
+                    developer {
+                        name.set("Hibernix s.r.o.")
+                        url.set("https://hibernix.com")
+                    }
+                }
+            }
+        }
+    }
+}
+
 android {
-    compileSdk = 33
+    compileSdk = androidCompileSdk
     defaultConfig {
-        minSdk = 19
-        targetSdk = 33
+        minSdk = androidMinSdk
+        targetSdk = androidTargetSdk
     }
     namespace = "com.hibernix.finnhub.websocket"
 }

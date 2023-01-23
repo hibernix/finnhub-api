@@ -107,7 +107,8 @@ import kotlinx.serialization.json.Json
 
 interface FinnhubApi {
     /**
-     * Aggregate Indicators
+     * Aggregate Indicators *(Premium API)*
+     *
      * Get aggregate signal of multiple technical indicators such as MACD, RSI, Moving Average v.v.
      * A full list of indicators can be found
      * [here](https://docs.google.com/spreadsheets/d/1MWuy0WuT2yVlxr1KbPdggVygMZtJfunDnhe-C0GEXYM/edit?usp=sharing).
@@ -123,14 +124,16 @@ interface FinnhubApi {
     ): AggregateIndicators
 
     /**
-     * Bond price data
-     * Get bond's price data. The following datasets are supported:<table class=\"table table-hover\">
-     *     <thead>     <tr>       <th>Exchange</th>       <th>Segment</th>       <th>Delay</th>     </tr>   </thead>
-     *     <tbody>   <tr>       <td class=\"text-blue\">US Government Bonds</th>       <td>Government Bonds</td>
-     *     <td>End-of-day</td>     </tr>     <tr>       <td class=\"text-blue\">FINRA Trace</th>
-     *     <td>BTDS: US Corporate Bonds</td>       <td>Delayed 4h</td>     </tr>     <tr>
-     *         <td class=\"text-blue\">FINRA Trace</th>       <td>144A Bonds</td>       <td>Delayed 4h</td>
-     *     </tr>   </tbody> </table>
+     * Bond price data *(Premium API)*
+     *
+     * Get bond's price data. The following datasets are supported:
+     * ```
+     *  Exchange              | Segment                  | Delay
+     * ----------------------------------------------------------------------
+     * - US Government Bonds  | Government Bonds         | End-of-day
+     * - FINRA Trace          | BTDS: US Corporate Bonds | Delayed 4h
+     * - FINRA Trace          | 144A Bonds               | Delayed 4h
+     * ```
      * @param isin ISIN. (required)
      * @param from UNIX timestamp. Interval initial value. (required)
      * @param to UNIX timestamp. Interval end value. (required)
@@ -144,7 +147,8 @@ interface FinnhubApi {
     ): Candles
 
     /**
-     * Bond Profile
+     * Bond Profile *(Premium API)*
+     *
      * Get general information of a bond. You can query by FIGI, ISIN or CUSIP
      * @param isin ISIN (optional)
      * @param cusip CUSIP (optional)
@@ -159,12 +163,15 @@ interface FinnhubApi {
     ): BondProfile
 
     /**
-     * Bond Tick Data
-     * Get trade-level data for bonds. The following datasets are supported:<table class=\"table table-hover\">
-     *     <thead>     <tr>       <th>Exchange</th>       <th>Segment</th>       <th>Delay</th>     </tr>   </thead>
-     *     <tbody>     <tr>       <td class=\"text-blue\">FINRA Trace</th>       <td>BTDS: US Corporate Bonds</td>
-     *     <td>Delayed 4h</td>     </tr>     <tr>       <td class=\"text-blue\">FINRA Trace</th>
-     *     <td>144A Bonds</td>       <td>Delayed 4h</td>     </tr>   </tbody> </table>
+     * Bond Tick Data *(Premium API)*
+     *
+     * Get trade-level data for bonds. The following datasets are supported:
+     * ```
+     *  Exchange              | Segment                  | Delay
+     * ----------------------------------------------------------------------
+     *  FINRA Trace           | BTDS: US Corporate Bonds | Delayed 4h
+     *  FINRA Trace           | 144A Bonds               | Delayed 4h
+     * ```
      * @param isin ISIN. (required)
      * @param date Date: 2020-04-02. (required)
      * @param limit Limit number of ticks returned. Maximum value: *25000* (required)
@@ -182,7 +189,7 @@ interface FinnhubApi {
     ): BondTickData
 
     /**
-     * Bond Yield Curve
+     * Bond Yield Curve *(Premium API)*
      *
      * Get yield curve data for Treasury bonds.
      * @param code Bond's code. You can find the list of supported code
@@ -197,6 +204,7 @@ interface FinnhubApi {
 
     /**
      * Basic Financials
+     *
      * Get company basic financials such as margin, P/E ratio, 52-week high/low etc.
      * @param symbol Symbol of the company: AAPL. (required)
      * @param metric Metric type. Can be 1 of the following values *all* (required)
@@ -210,6 +218,7 @@ interface FinnhubApi {
 
     /**
      * Earnings Surprises
+     *
      * Get company historical quarterly earnings surprise going back to 2000.
      * @param symbol Symbol of the company: AAPL. (required)
      * @param limit Limit number of period returned. Leave blank to get the full history. (optional)
@@ -222,13 +231,17 @@ interface FinnhubApi {
     ): List<EarningResult>
 
     /**
-     * Company Earnings Quality Score
+     * Company Earnings Quality Score *(Premium API)*
+     *
      * This endpoint provides Earnings Quality Score for global companies. Earnings quality refers to the extent
      * to which current earnings predict future earnings. \"High-quality\" earnings are expected to persist,
      * while \"low-quality\" earnings do not. A higher score means a higher earnings quality. Finnhub uses a proprietary
      * model which takes into consideration 4 criteria:
-     * <ul style=\"list-style-type: unset; margin-left: 30px;\"><li>Profitability</li><li>Growth</li><li>Cash Generation
-     * & Capital Allocation</li><li>Leverage</li></ul><br/>We then compare the metrics of each company in each category
+     * - Profitability
+     * - Growth
+     * - Cash Generation & Capital Allocation
+     * - Leverage
+     * We then compare the metrics of each company in each category
      * against its peers in the same industry to gauge how quality its earnings is.
      * @param symbol Symbol. (required)
      * @param freq Frequency. Currently support *annual* and *quarterly* (required)
@@ -241,7 +254,8 @@ interface FinnhubApi {
     ): CompanyEarningsQualityScore
 
     /**
-     * EBIT Estimates
+     * EBIT Estimates *(Premium API)*
+     *
      * Get company's ebit estimates.
      * @param symbol Symbol of the company: AAPL. (required)
      * @param freq Can take 1 of the following values: *annual, quarterly*.
@@ -255,7 +269,8 @@ interface FinnhubApi {
     ): EbitEstimates
 
     /**
-     * EBITDA Estimates
+     * EBITDA Estimates *(Premium API)*
+     *
      * Get company's ebitda estimates.
      * @param symbol Symbol of the company: AAPL. (required)
      * @param freq Can take 1 of the following values: *annual, quarterly*.
@@ -269,7 +284,8 @@ interface FinnhubApi {
     ): EbitdaEstimates
 
     /**
-     * Earnings Estimates
+     * Earnings Estimates *(Premium API)*
+     *
      * Get company's EPS estimates.
      * @param symbol Symbol of the company: AAPL. (required)
      * @param freq Can take 1 of the following values: *annual, quarterly*.
@@ -283,7 +299,8 @@ interface FinnhubApi {
     ): EarningsEstimates
 
     /**
-     * Company ESG Scores
+     * Company ESG Scores *(Premium API)*
+     *
      * This endpoint provides ESG scores and important indicators for 1000+ global companies.
      * The data is collected through company's public ESG disclosure and public sources.
      * Our ESG scoring models takes into account more than 150 different inputs to calculate the level of ESG risks
@@ -299,7 +316,8 @@ interface FinnhubApi {
     ): CompanyESG
 
     /**
-     * Company Executive
+     * Company Executive *(Premium API)*
+     *
      * Get a list of company's executives and members of the Board.
      * @param symbol Symbol of the company: AAPL. (required)
      */
@@ -311,6 +329,7 @@ interface FinnhubApi {
 
     /**
      * Company News
+     *
      * List latest company news by symbol. This endpoint is only available for North American companies.
      * @param symbol Company symbol. (required)
      * @param from From date *YYYY-MM-DD*. (required)
@@ -326,6 +345,7 @@ interface FinnhubApi {
 
     /**
      * Peers
+     *
      * Get company peers. Return a list of peers operating in the same country and sector/industry.
      * @param symbol Symbol of the company: AAPL. (required)
      * @param grouping Specify the grouping criteria for choosing peers.Supporter values: *sector*,
@@ -339,7 +359,8 @@ interface FinnhubApi {
     ): List<String>
 
     /**
-     * Company Profile
+     * Company Profile *(Premium API)*
+     *
      * Get general information of a company. You can query by symbol, ISIN or CUSIP
      * @param symbol Symbol of the company: AAPL e.g. (optional)
      * @param isin ISIN (optional)
@@ -355,6 +376,7 @@ interface FinnhubApi {
 
     /**
      * Company Profile 2
+     *
      * Get general information of a company. You can query by symbol, ISIN or CUSIP.
      * This is the free version of [companyProfile].
      * @param symbol Symbol of the company: AAPL e.g. (optional)
@@ -370,7 +392,8 @@ interface FinnhubApi {
     ): CompanyProfile2
 
     /**
-     * Revenue Estimates
+     * Revenue Estimates *(Premium API)*
+     *
      * Get company's revenue estimates.
      * @param symbol Symbol of the company: AAPL. (required)
      * @param freq Can take 1 of the following values: *annual, quarterly*. Default to *quarterly* (optional)
@@ -384,6 +407,7 @@ interface FinnhubApi {
 
     /**
      * Country Metadata
+     *
      * List all countries and metadata.
      */
     @Headers("X-Operation-ID: country")
@@ -392,6 +416,7 @@ interface FinnhubApi {
 
     /**
      * COVID-19
+     *
      * Get real-time updates on the number of COVID-19 (Corona virus) cases in the US with a state-by-state breakdown.
      * Data is sourced from CDC and reputable sources. You can also access this API
      * [here](https://rapidapi.com/Finnhub/api/finnhub-real-time-covid-19)
@@ -402,6 +427,7 @@ interface FinnhubApi {
 
     /**
      * Crypto Candles
+     *
      * Get candlestick data for crypto symbols.
      * @param symbol Use symbol returned in [cryptoSymbols] endpoint for this field. (required)
      * @param resolution Supported resolution includes *1, 5, 15, 30, 60, D, W, M *.Some timeframes might
@@ -420,6 +446,7 @@ interface FinnhubApi {
 
     /**
      * Crypto Exchanges
+     *
      * List supported crypto exchanges
      */
     @Headers("X-Operation-ID: crypto-exchanges")
@@ -427,7 +454,8 @@ interface FinnhubApi {
     suspend fun cryptoExchanges(): List<String>
 
     /**
-     * Crypto Profile
+     * Crypto Profile *(Premium API)*
+     *
      * Get crypto's profile.
      * @param symbol Crypto symbol such as BTC or ETH. (required)
      */
@@ -439,6 +467,7 @@ interface FinnhubApi {
 
     /**
      * Crypto Symbol
+     *
      * List supported crypto symbols by exchange
      * @param exchange Exchange you want to get the list of symbols from. (required)
      */
@@ -450,6 +479,7 @@ interface FinnhubApi {
 
     /**
      * Earnings Calendar
+     *
      * Get historical and coming earnings release. EPS and Revenue in this endpoint are non-GAAP, which means they are
      * adjusted to exclude some one-time or unusual items. This is the same data investors usually react to and talked
      * about on the media. Estimates are sourced from both sell-side and buy-side analysts.
@@ -468,7 +498,8 @@ interface FinnhubApi {
     ): EarningsCalendar
 
     /**
-     * Economic Calendar
+     * Economic Calendar *(Premium API)*
+     *
      * Get recent and upcoming economic releases.Historical events and surprises are available for Enterprise clients.
      * @param from From date *YYYY-MM-DD*. (optional)
      * @param to To date *YYYY-MM-DD*. (optional)
@@ -481,7 +512,8 @@ interface FinnhubApi {
     ): EconomicCalendar
 
     /**
-     * Economic Code
+     * Economic Code *(Premium API)*
+     *
      * List codes of supported economic data.
      */
     @Headers("X-Operation-ID: economic-code")
@@ -489,7 +521,8 @@ interface FinnhubApi {
     suspend fun economicCode(): List<EconomicCode>
 
     /**
-     * Economic Data
+     * Economic Data *(Premium API)*
+     *
      * Get economic data.
      * @param code Economic code. (required)
      */
@@ -500,7 +533,8 @@ interface FinnhubApi {
     ): EconomicData
 
     /**
-     * ETFs Country Exposure
+     * ETFs Country Exposure *(Premium API)*
+     *
      * Get ETF country exposure data.
      * @param symbol ETF symbol. (required)
      */
@@ -511,7 +545,8 @@ interface FinnhubApi {
     ): ETFsCountryExposure
 
     /**
-     * ETFs Holdings
+     * ETFs Holdings *(Premium API)*
+     *
      * Get full ETF holdings/constituents. This endpoint has global coverage. Widget only shows top 10 holdings.
      * @param symbol ETF symbol. (optional)
      * @param isin ETF isin. (optional)
@@ -529,7 +564,8 @@ interface FinnhubApi {
     ): ETFsHoldings
 
     /**
-     * ETFs Profile
+     * ETFs Profile *(Premium API)*
+     *
      * Get ETF profile information. This endpoint has global coverage.
      * @param symbol ETF symbol. (optional)
      * @param isin ETF isin. (optional)
@@ -542,7 +578,8 @@ interface FinnhubApi {
     ): ETFsProfile
 
     /**
-     * ETFs Sector Exposure
+     * ETFs Sector Exposure *(Premium API)*
+     *
      * Get ETF sector exposure data.
      * @param symbol ETF symbol. (required)
      */
@@ -567,6 +604,7 @@ interface FinnhubApi {
 
     /**
      * SEC Filings
+     *
      * List company's filing. Limit to 250 documents at a time. This data is available for bulk download on
      * [here](https://www.kaggle.com/finnhub/sec-filings>Kaggle SEC Filings database).
      * @param symbol Symbol. Leave *symbol*,*cik* and *accessNumber* empty to list latest filings. (optional)
@@ -588,7 +626,8 @@ interface FinnhubApi {
     ): List<Filing>
 
     /**
-     * SEC Sentiment Analysis
+     * SEC Sentiment Analysis *(Premium API)*
+     *
      * Get sentiment analysis of 10-K and 10-Q filings from SEC. An abnormal increase in the number of positive/negative
      * words in filings can signal a significant change in the company's stock price in the upcoming 4 quarters.
      * We make use of [Loughran and McDonald Sentiment Word Lists](https://sraf.nd.edu/textual-analysis/resources/)
@@ -602,7 +641,8 @@ interface FinnhubApi {
     ): SECSentimentAnalysis
 
     /**
-     * Financial Statements
+     * Financial Statements *(Premium API)*
+     *
      * Get standardized balance sheet, income statement and cash flow for global companies going back 30+ years.
      * Data is sourced from original filings most of which made available through [filings] and [internationalFilings]
      * endpoints.*Wondering why our standardized data is different from Bloomberg, Reuters, Factset, S&P
@@ -624,6 +664,7 @@ interface FinnhubApi {
 
     /**
      * Financials As Reported
+     *
      * Get financials as reported. This data is available for bulk download on
      * [Kaggle SEC Financials database](https://www.kaggle.com/finnhub/reported-financials).
      * @param symbol Symbol. (optional)
@@ -646,7 +687,8 @@ interface FinnhubApi {
     ): FinancialsAsReported
 
     /**
-     * Forex Candles
+     * Forex Candles *(Premium API)*
+     *
      * Get candlestick data for forex symbols.
      * @param symbol Use symbol returned in [forexSymbols] endpoint for this field. (required)
      * @param resolution Supported resolution includes *1, 5, 15, 30, 60, D, W, M *.Some timeframes might not
@@ -665,6 +707,7 @@ interface FinnhubApi {
 
     /**
      * Forex Exchanges
+     *
      * List supported forex exchanges
      */
     @Headers("X-Operation-ID: forex-exchanges")
@@ -672,7 +715,8 @@ interface FinnhubApi {
     suspend fun forexExchanges(): List<String>
 
     /**
-     * Forex rates
+     * Forex rates *(Premium API)*
+     *
      * Get rates for all forex pairs. Ideal for currency conversion
      * @param base Base currency. Default to EUR. (optional)
      * @param date Date. Leave blank to get the latest data. (optional)
@@ -686,6 +730,7 @@ interface FinnhubApi {
 
     /**
      * Forex Symbol
+     *
      * List supported forex symbols.
      * @param exchange Exchange you want to get the list of symbols from. (required)
      */
@@ -696,7 +741,8 @@ interface FinnhubApi {
     ): List<ForexSymbol>
 
     /**
-     * Fund Ownership
+     * Fund Ownership *(Premium API)*
+     *
      * Get a full list fund and institutional investors of a company in descending order of the number of shares held.
      * Data is sourced from *13F form*, *Schedule 13D* and *13G* for US market,
      * *UK Share Register* for UK market, *SEDI* for Canadian market and equivalent filings
@@ -712,7 +758,8 @@ interface FinnhubApi {
     ): FundOwnership
 
     /**
-     * Global Filings Search
+     * Global Filings Search *(Premium API)*
+     *
      * Search for best-matched filings across global companies' filings, transcripts and press releases.
      * You can filter by anything from symbol, ISIN to form type, and document sources.This endpoint will return a list
      * of documents that match your search criteria. If you would like to get the excerpts as well, please set
@@ -728,7 +775,7 @@ interface FinnhubApi {
     ): SearchResponse
 
     /**
-     * Search Filter
+     * Search Filter *(Premium API)*
      *
      * Get available values for each filter in search body.This endpoint is powered
      * by [alpharesearch.io](https://alpharesearch.io)
@@ -745,6 +792,7 @@ interface FinnhubApi {
 
     /**
      * Indices Constituents
+     *
      * Get a list of index's constituents. A list of supported indices for this endpoint can be found
      * [here](https://docs.google.com/spreadsheets/d/1Syr2eLielHWsorxkDEZXyc55d6bNx1M3ZeI4vdn7Qzo/edit?usp=sharing).
      * @param symbol symbol (required)
@@ -756,7 +804,8 @@ interface FinnhubApi {
     ): IndicesConstituents
 
     /**
-     * Indices Historical Constituents
+     * Indices Historical Constituents *(Premium API)*
+     *
      * Get full history of index's constituents including symbols and dates of joining and leaving the Index.
      * Currently support *^GSPC*, *^NDX*, *^DJI*
      * @param symbol symbol (required)
@@ -788,6 +837,7 @@ interface FinnhubApi {
 
     /**
      * Insider Transactions
+     *
      * Company insider transactions data sourced from *Form 3,4,5*, SEDI and relevant companies' filings.
      * This endpoint covers US, Canada, Australia, and selected EU companies. Limit to 100 transactions per API call.
      * @param symbol Symbol of the company: AAPL. Leave this param blank to get the latest transactions. (required)
@@ -803,7 +853,8 @@ interface FinnhubApi {
     ): InsiderTransactions
 
     /**
-     * Institutional Ownership
+     * Institutional Ownership *(Premium API)*
+     *
      * Get a list institutional investors' positions for a particular stock overtime. Data from 13-F filings.
      * Limit to 1 year of data at a time.
      * @param symbol Filter by symbol. (required)
@@ -821,7 +872,8 @@ interface FinnhubApi {
     ): InstitutionalOwnership
 
     /**
-     * Institutional Portfolio
+     * Institutional Portfolio *(Premium API)*
+     *
      * Get the holdings/portfolio data of institutional investors from 13-F filings. Limit to 1 year of data at a time.
      * You can get a list of supported CIK [here](/api/v1/institutional/list?token=).
      * @param cik Fund's CIK. (required)
@@ -837,7 +889,8 @@ interface FinnhubApi {
     ): InstitutionalPortfolio
 
     /**
-     * Institutional Profile
+     * Institutional Profile *(Premium API)*
+     *
      * Get a list of well-known institutional investors. Currently support 60+ profiles.
      * @param cik Filter by CIK. Leave blank to get the full list. (optional)
      */
@@ -848,7 +901,7 @@ interface FinnhubApi {
     ): InstitutionalProfile
 
     /**
-     * International Filings
+     * International Filings *(Premium API)*
      *
      * List filings for international companies. Limit to 250 documents at a time. These are the documents we use to
      * source our fundamental data. Only support SEDAR and UK Companies House for normal usage. Enterprise clients who
@@ -864,7 +917,7 @@ interface FinnhubApi {
     ): List<InternationalFiling>
 
     /**
-     * Investment Themes (Thematic Investing).
+     * Investment Themes (Thematic Investing). *(Premium API)*
      *
      * Thematic investing involves creating a portfolio (or portion of a portfolio) by gathering together a collection
      * of companies involved in certain areas that you predict will generate above-market returns over the long term.
@@ -888,6 +941,7 @@ interface FinnhubApi {
 
     /**
      * IPO Calendar.
+     *
      * Get recent and upcoming IPO.
      * @param from From date: 2020-03-15. (required)
      * @param to To date: 2020-03-16. (required)
@@ -900,7 +954,8 @@ interface FinnhubApi {
     ): IPOCalendar
 
     /**
-     * ISIN Change
+     * ISIN Change *(Premium API)*
+     *
      * Get a list of ISIN changes for EU-listed securities. Limit to 2000 events at a time.
      * @param from From date *YYYY-MM-DD*. (required)
      * @param to To date *YYYY-MM-DD*. (required)
@@ -914,6 +969,7 @@ interface FinnhubApi {
 
     /**
      * Market News
+     *
      * Get latest market news.
      * @param category This parameter can be 1 of the following values *general, forex, crypto, merger*. (required)
      * @param minId Use this field to get only news after this ID. Default to 0 (optional)
@@ -926,7 +982,8 @@ interface FinnhubApi {
     ): List<MarketNews>
 
     /**
-     * Mutual Funds Country Exposure
+     * Mutual Funds Country Exposure *(Premium API)*
+     *
      * Get Mutual Funds country exposure data.
      * @param symbol Symbol. (required)
      */
@@ -937,7 +994,8 @@ interface FinnhubApi {
     ): MutualFundCountryExposure
 
     /**
-     * Mutual Funds EET
+     * Mutual Funds EET *(Premium API)*
+     *
      * Get EET data for EU funds. For PAIs data, please see the EET PAI endpoint.
      * @param isin ISIN. (required)
      */
@@ -948,7 +1006,8 @@ interface FinnhubApi {
     ): MutualFundEet
 
     /**
-     * Mutual Funds EET PAI
+     * Mutual Funds EET PAI *(Premium API)*
+     *
      * Get EET PAI data for EU funds.
      * @param isin ISIN. (required)
      */
@@ -959,7 +1018,8 @@ interface FinnhubApi {
     ): MutualFundEetPai
 
     /**
-     * Mutual Funds Holdings
+     * Mutual Funds Holdings *(Premium API)*
+     *
      * Get full Mutual Funds holdings/constituents. This endpoint covers both US and global mutual funds.
      * For international funds, you must query the data using ISIN.
      * @param symbol Fund's symbol. (optional)
@@ -976,7 +1036,8 @@ interface FinnhubApi {
     ): MutualFundHoldings
 
     /**
-     * Mutual Funds Profile
+     * Mutual Funds Profile *(Premium API)*
+     *
      * Get mutual funds profile information. This endpoint covers both US and global mutual funds.
      * For international funds, you must query the data using ISIN.
      * @param symbol Fund's symbol. (optional)
@@ -990,7 +1051,8 @@ interface FinnhubApi {
     ): MutualFundProfile
 
     /**
-     * Mutual Funds Sector Exposure
+     * Mutual Funds Sector Exposure *(Premium API)*
+     *
      * Get Mutual Funds sector exposure data.
      * @param symbol Mutual Fund symbol. (required)
      */
@@ -1001,7 +1063,8 @@ interface FinnhubApi {
     ): MutualFundSectorExposure
 
     /**
-     * News Sentiment
+     * News Sentiment *(Premium API)*
+     *
      * Get company's news sentiment and statistics. This endpoint is only available for US companies.
      * @param symbol Company symbol. (required)
      */
@@ -1012,7 +1075,8 @@ interface FinnhubApi {
     ): NewsSentiment
 
     /**
-     * Ownership
+     * Ownership *(Premium API)*
+     *
      * Get a full list of shareholders of a company in descending order of the number of shares held.
      * Data is sourced from *13F form*, *Schedule 13D* and *13G* for US market,
      * *UK Share Register* for UK market, *SEDI* for Canadian market and equivalent filings
@@ -1028,7 +1092,8 @@ interface FinnhubApi {
     ): Ownership
 
     /**
-     * Pattern Recognition
+     * Pattern Recognition *(Premium API)*
+     *
      * Run pattern recognition algorithm on a symbol. Support double top/bottom, triple top/bottom, head and shoulders,
      * triangle, wedge, channel, flag, and candlestick patterns.
      * @param symbol Symbol (required)
@@ -1043,7 +1108,8 @@ interface FinnhubApi {
     ): PatternRecognition
 
     /**
-     * Major Press Releases
+     * Major Press Releases *(Premium API)*
+     *
      * Get latest major press releases of a company. This data can be used to highlight the most significant events
      * comprised of mostly press releases sourced from the exchanges, BusinessWire, AccessWire, GlobeNewswire, Newsfile,
      * and PRNewswire.Full-text press releases data is available for Enterprise clients.
@@ -1061,7 +1127,8 @@ interface FinnhubApi {
     ): PressRelease
 
     /**
-     * Price Metrics
+     * Price Metrics *(Premium API)*
+     *
      * Get company price performance statistics such as 52-week high/low, YTD return and much more.
      * @param symbol Symbol of the company: AAPL. (required)
      */
@@ -1072,7 +1139,8 @@ interface FinnhubApi {
     ): PriceMetrics
 
     /**
-     * Price Target
+     * Price Target *(Premium API)*
+     *
      * Get latest price target consensus.
      * @param symbol Symbol of the company: AAPL. (required)
      */
@@ -1084,6 +1152,7 @@ interface FinnhubApi {
 
     /**
      * Quote
+     *
      * Get real-time quote data for US stocks. Constant polling is not recommended. Use websocket if you need real-time
      * updates.Real-time stock prices for international markets are supported for Enterprise clients via our partner's
      * feed. [here](mailto:support@finnhub.io\">Contact Us) to learn more.
@@ -1097,6 +1166,7 @@ interface FinnhubApi {
 
     /**
      * Recommendation Trends
+     *
      * Get latest analyst recommendation trends for a company.
      * @param symbol Symbol of the company: AAPL. (required)
      */
@@ -1107,7 +1177,8 @@ interface FinnhubApi {
     ): List<RecommendationTrend>
 
     /**
-     * Revenue Breakdown
+     * Revenue Breakdown *(Premium API)*
+     *
      * Get revenue breakdown by product. This dataset is only available for US companies which disclose their revenue
      * breakdown in the annual or quarterly reports.
      * @param symbol Symbol. (optional)
@@ -1121,7 +1192,8 @@ interface FinnhubApi {
     ): RevenueBreakdown
 
     /**
-     * Search In Filing
+     * Search In Filing *(Premium API)*
+     *
      * Get a list of excerpts and highlight positions within a document using your query.This endpoint is powered
      * by [here](https://alpharesearch.io/>AlphaResearch.io)
      * @param search Search body (optional)
@@ -1133,7 +1205,8 @@ interface FinnhubApi {
     ): InFilingResponse
 
     /**
-     * Sector Metrics
+     * Sector Metrics *(Premium API)*
+     *
      * Get ratios for different sectors and regions/indices.
      * @param region Region. A list of supported values for this field can be found
      * [here](https://docs.google.com/spreadsheets/d/1afedyv7yWJ-z7pMjaAZK-f6ENY3mI3EBCk95QffpoHw/edit?usp=sharing)
@@ -1146,7 +1219,8 @@ interface FinnhubApi {
     ): SectorMetric
 
     /**
-     * Similarity Index
+     * Similarity Index *(Premium API)*
+     *
      * Calculate the textual difference between a company's 10-K / 10-Q reports and the same type of report
      * in the previous year using Cosine Similarity. For example, this endpoint compares 2019's 10-K with 2018's 10-K.
      * Companies breaking from its routines in disclosure of financial condition and risk analysis section can signal
@@ -1165,6 +1239,7 @@ interface FinnhubApi {
 
     /**
      * Social Sentiment
+     *
      * Get social sentiment for stocks on Reddit and Twitter. This endpoint is currently in Beta.
      * @param symbol Company symbol. (required)
      * @param from From date *YYYY-MM-DD*. (optional)
@@ -1179,7 +1254,7 @@ interface FinnhubApi {
     ): SocialSentiment
 
     /**
-     * Dividends 2 (Basic)
+     * Dividends 2 (Basic) *(Premium API)*
      *
      * Get global dividends data.
      * @param symbol Symbol. (required)
@@ -1191,7 +1266,8 @@ interface FinnhubApi {
     ): Dividends2
 
     /**
-     * Last Bid-Ask
+     * Last Bid-Ask *(Premium API)*
+     *
      * Get last bid/ask data for US stocks.
      * @param symbol Symbol. (required)
      */
@@ -1222,7 +1298,7 @@ interface FinnhubApi {
     ): Candles
 
     /**
-     * Dividends
+     * Dividends *(Premium API)*
      *
      * Get dividends data for common stocks going back 30 years.
      * @param symbol Symbol. (required)
@@ -1254,7 +1330,7 @@ interface FinnhubApi {
     ): LobbyingResult
 
     /**
-     * Historical NBBO
+     * Historical NBBO *(Premium API)*
      *
      * Get historical best bid and offer for US stocks, LSE, TSX, Euronext and Deutsche Borse.For US market,
      * this endpoint only serves historical NBBO from the beginning of 2020. To download more historical data,
@@ -1274,7 +1350,7 @@ interface FinnhubApi {
     ): HistoricalNBBO
 
     /**
-     * Splits
+     * Splits *(Premium API)*
      *
      * Get splits data for stocks.
      * @param symbol Symbol. (required)
@@ -1312,7 +1388,8 @@ interface FinnhubApi {
     ): List<StockSymbol>
 
     /**
-     * Tick Data
+     * Tick Data *(Premium API)*
+     *
      * Get historical tick data for global exchanges. You can send the request directly to our tick server
      * at [here](https://tick.finnhub.io) with the same path and parameters or get
      * redirected there if you call our main server.For US market, you can visit our bulk download page
@@ -1334,6 +1411,7 @@ interface FinnhubApi {
 
     /**
      * USA Spending
+     *
      * Get a list of government's spending activities from USASpending dataset for public companies.
      * This dataset can help you identify companies that win big government contracts which is extremely important
      * for industries such as Defense, Aerospace, and Education.
@@ -1351,6 +1429,7 @@ interface FinnhubApi {
 
     /**
      * USPTO Patents
+     *
      * List USPTO patents for companies. Limit to 250 records per API call.
      * @param symbol Symbol. (required)
      * @param from From date *YYYY-MM-DD*. (required)
@@ -1366,6 +1445,7 @@ interface FinnhubApi {
 
     /**
      * H1-B Visa Application
+     *
      * Get a list of H1-B and Permanent visa applications for companies from the DOL. The data is updated quarterly.
      * @param symbol Symbol. (required)
      * @param from From date *YYYY-MM-DD*. Filter on the *beginDate* column. (required)
@@ -1380,7 +1460,8 @@ interface FinnhubApi {
     ): VisaApplicationResult
 
     /**
-     * Supply Chain Relationships
+     * Supply Chain Relationships *(Premium API)*
+     *
      * This endpoint provides an overall map of public companies' key customers and suppliers. The data offers a deeper
      * look into a company's supply chain and how products are created. The data will help investors manage risk, limit
      * exposure or generate alpha-generating ideas and trading insights.
@@ -1393,7 +1474,8 @@ interface FinnhubApi {
     ): SupplyChainRelationships
 
     /**
-     * Support/Resistance
+     * Support/Resistance *(Premium API)*
+     *
      * Get support and resistance levels for a symbol.
      * @param symbol Symbol (required)
      * @param resolution Supported resolution includes *1, 5, 15, 30, 60, D, W, M *.Some timeframes might not
@@ -1407,7 +1489,8 @@ interface FinnhubApi {
     ): SupportResistance
 
     /**
-     * Symbol Change
+     * Symbol Change *(Premium API)*
+     *
      * Get a list of symbol changes for US-listed, EU-listed, NSE and ASX securities. Limit to 2000 events at a time.
      * @param from From date *YYYY-MM-DD*. (required)
      * @param to To date *YYYY-MM-DD*. (required)
@@ -1421,6 +1504,7 @@ interface FinnhubApi {
 
     /**
      * Symbol Lookup
+     *
      * Search for best-matching symbols based on your query. You can input anything from symbol,
      * security's name to ISIN and Cusip.
      * @param q Query text can be symbol, name, isin, or cusip. (required)
@@ -1433,6 +1517,7 @@ interface FinnhubApi {
 
     /**
      * Technical Indicators
+     *
      * Return technical indicator with price data. List of supported indicators can be found
      * [here](https://docs.google.com/spreadsheets/d/1ylUvKHVYN2E87WdwIza8ROaCpd48ggEl1k5i5SgA29k/edit?usp=sharing).
      * @param symbol symbol (required)
@@ -1459,7 +1544,8 @@ interface FinnhubApi {
     ): TechnicalIndicator
 
     /**
-     * Earnings Call Transcripts
+     * Earnings Call Transcripts *(Premium API)*
+     *
      * Get earnings call transcripts, audio and participants' list. Data is available for US, UK, European, Australian
      * and Canadian companies.15+ years of data is available with 220,000+ audio which add up to 7TB in size.
      * @param id Transcript's id obtained with <a href="#transcripts-list">Transcripts List endpoint). (required)
@@ -1472,6 +1558,7 @@ interface FinnhubApi {
 
     /**
      * Earnings Call Transcripts List
+     *
      * List earnings call transcripts' metadata. This endpoint is available for US, UK, European, Australian
      * and Canadian companies.
      * @param symbol Company symbol: AAPL. Leave empty to list the latest transcripts (required)
@@ -1483,7 +1570,8 @@ interface FinnhubApi {
     ): EarningsCallTranscriptsList
 
     /**
-     * Stock Upgrade/Downgrade
+     * Stock Upgrade/Downgrade *(Premium API)*
+     *
      * Get latest stock upgrade and downgrade.
      * @param symbol Symbol of the company: AAPL. If left blank, the API will return
      * latest stock upgrades/downgrades. (optional)

@@ -15,15 +15,15 @@ val coroutinesVersion = extra["versions.coroutines"]
 val serializationVersion = extra["versions.serialization"]
 val datetimeVersion = extra["versions.datetime"]
 
-group = requireNotNull(extra["project.group"])
-version = requireNotNull(extra["project.version"])
+val androidMinSdk = extra["project.android.minSdk"].toString().toInt()
+val androidTargetSdk = extra["project.android.targetSdk"].toString().toInt()
+val androidCompileSdk = extra["project.android.compileSdk"].toString().toInt()
+
+group = extra["project.group"].toString()
+version = extra["project.version"].toString()
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
-}
-
-val javadocJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("javadoc")
 }
 
 detekt {
@@ -34,7 +34,7 @@ detekt {
 kotlin {
     jvm()
     android {
-        publishLibraryVariants("release", "debug")
+        publishLibraryVariants("release"/*, "debug"*/)
     }
     js {
         browser()
@@ -64,12 +64,58 @@ kotlin {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = androidCompileSdk
     defaultConfig {
-        minSdk = 19
-        targetSdk = 33
+        minSdk = androidMinSdk
+        targetSdk = androidTargetSdk
     }
     namespace = "com.hibernix.finnhub.api"
+}
+
+val dokkaOutputDir = "$buildDir/dokka"
+
+tasks.getByName<org.jetbrains.dokka.gradle.DokkaTask>("dokkaHtml") {
+    outputDirectory.set(file(dokkaOutputDir))
+}
+
+val deleteDokkaOutputDir by tasks.register<Delete>("deleteDokkaOutputDirectory") {
+    delete(dokkaOutputDir)
+}
+
+val javadocJar = tasks.register<Jar>("javadocJar") {
+    dependsOn(deleteDokkaOutputDir, tasks.dokkaHtml)
+    archiveClassifier.set("javadoc")
+    from(dokkaOutputDir)
+}
+
+publishing {
+    publications {
+        withType<MavenPublication> {
+            artifact(tasks["javadocJar"])
+            pom {
+                name.set(project.name)
+                description.set("Finnhub REST API")
+                url.set("https://github.com/hibernix/finnhub-api")
+
+                licenses {
+                    license {
+                        name.set("Apache License 2.0")
+                        url.set("https://github.com/Foso/Ktorfit/blob/master/LICENSE.txt")
+                    }
+                }
+                scm {
+                    url.set("https://github.com/hibernix/finnhub-api")
+                    connection.set("https://github.com/hibernix/finnhub-api.git")
+                }
+                developers {
+                    developer {
+                        name.set("Hibernix s.r.o.")
+                        url.set("https://hibernix.com")
+                    }
+                }
+            }
+        }
+    }
 }
 
 val kspRetrofit = "de.jensklingenberg.ktorfit:ktorfit-ksp:$ktorfitVersion"
