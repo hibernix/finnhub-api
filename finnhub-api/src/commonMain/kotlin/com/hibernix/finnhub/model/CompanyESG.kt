@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
  * @property environmentScore Environment Score
  * @property governanceScore Governance Score
  * @property socialScore Social Score
- * @property `data` Map key-value pair of key ESG data points.
+ * @property data Map key-value pair of key ESG data points.
  */
 @Serializable
 data class CompanyESG(
@@ -18,5 +18,5 @@ data class CompanyESG(
     @SerialName("environmentScore") var environmentScore: Float? = null,
     @SerialName("governanceScore") var governanceScore: Float? = null,
     @SerialName("socialScore") var socialScore: Float? = null,
-    @SerialName("data") var `data`: CompanyESGMap? = null
+    @SerialName("data") var data: CompanyESGMap? = null
 )

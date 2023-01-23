@@ -8,11 +8,13 @@ import kotlinx.datetime.LocalDate
  * @property symbol Symbol.
  * @property name Insider's name.
  * @property share Number of shares held after the transaction.
- * @property change Number of share changed from the last period. A positive value suggests a <code>BUY</code> transaction. A negative value suggests a <code>SELL</code> transaction.
+ * @property change Number of share changed from the last period. A positive value suggests a *BUY* transaction.
+ * A negative value suggests a *SELL* transaction.
  * @property filingDate Filing date.
  * @property transactionDate Transaction date.
  * @property transactionPrice Average transaction price.
- * @property transactionCode Transaction code. A list of codes and their meanings can be found <a href="https://www.sec.gov/about/forms/form4data.pdf" target="_blank" rel="noopener").
+ * @property transactionCode Transaction code. A list of codes and their meanings can be found
+ * [here](https://www.sec.gov/about/forms/form4data.pdf).
  */
 @Serializable
 data class Transactions(

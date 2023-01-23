@@ -9,7 +9,7 @@ import kotlinx.datetime.LocalDate
  * @property date IPO date.
  * @property exchange Exchange.
  * @property name Company's name.
- * @property status IPO status. Can take 1 of the following values: <code>expected</code>,<code>priced</code>,<code>withdrawn</code>,<code>filed</code>
+ * @property status IPO status. Can take 1 of the following values: *expected*,*priced*,*withdrawn*,*filed*
  * @property price Projected price or price range.
  * @property numberOfShares Number of shares offered during the IPO.
  * @property totalSharesValue Total shares value.

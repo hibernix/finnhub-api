@@ -4,7 +4,7 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 /**
- * @property id Transcript's ID used to get the <a href="#transcripts">full transcript</a>.
+ * @property id Transcript's ID used to get the <a href="#transcripts">full transcript).
  * @property title Title.
  * @property time Time of the event.
  * @property year Year of earnings result in the case of earnings call transcript.

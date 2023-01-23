@@ -11,7 +11,7 @@ import kotlinx.serialization.Serializable
  * @property share Number of shares owned by the ETF.
  * @property percent Portfolio's percent
  * @property value Market value
- * @property assetType Asset type. Can be 1 of the following values: <code>Equity</code>, <code>ETP</code>, <code>Fund</code>, <code>Bond</code>, <code>Other</code> or empty.
+ * @property assetType Asset type. Can be 1 of the following values: *Equity*, *ETP*, *Fund*, *Bond*, *Other* or empty.
  */
 @Serializable
 data class ETFHoldingsData(

@@ -2,6 +2,7 @@ package com.hibernix.finnhub.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import com.hibernix.finnhub.api.FinnhubApi
 
 /**
  * @property query Search query
@@ -12,19 +13,29 @@ import kotlinx.serialization.Serializable
  * @property chIds List of Companies House number to search, comma separated (Max: 50).
  * @property symbols List of symbols to search, comma separated (Max: 50).
  * @property sedols List of sedols to search, comma separated (Max: 50).
- * @property sources List of sources to search, comma separated (Max: 50). Look at <code>/filter</code> endpoint to see all available values.
- * @property forms List of forms to search, comma separated (Max: 50). Look at <code>/filter</code> endpoint to see all available values.
- * @property gics List of gics to search, comma separated (Max: 50). Look at <code>/filter</code> endpoint to see all available values.
- * @property naics List of sources to search, comma separated (Max: 50). Look at <code>/filter</code> endpoint to see all available values.
- * @property exhibits List of exhibits to search, comma separated (Max: 50). Look at <code>/filter</code> endpoint to see all available values.
- * @property exchanges List of exchanges to search, comma separated (Max: 50). Look at <code>/filter</code> endpoint to see all available values.
- * @property countries List of sources to search, comma separated (Max: 50). Look at <code>/filter</code> endpoint to see all available values.
- * @property acts List of SEC's exchanges act to search, comma separated. Look at <code>/filter</code> endpoint to see all available values.
- * @property caps List of market capitalization to search, comma separated. Look at <code>/filter</code> endpoint to see all available values.
+ * @property sources List of sources to search, comma separated (Max: 50).
+ * Look at [FinnhubApi.globalFilingsSearchFilter] endpoint to see all available values.
+ * @property forms List of forms to search, comma separated (Max: 50).
+ * Look at [FinnhubApi.globalFilingsSearchFilter] endpoint to see all available values.
+ * @property gics List of gics to search, comma separated (Max: 50).
+ * Look at [FinnhubApi.globalFilingsSearchFilter] endpoint to see all available values.
+ * @property naics List of sources to search, comma separated (Max: 50).
+ * Look at [FinnhubApi.globalFilingsSearchFilter] endpoint to see all available values.
+ * @property exhibits List of exhibits to search, comma separated (Max: 50).
+ * Look at [FinnhubApi.globalFilingsSearchFilter] endpoint to see all available values.
+ * @property exchanges List of exchanges to search, comma separated (Max: 50).
+ * Look at [FinnhubApi.globalFilingsSearchFilter] endpoint to see all available values.
+ * @property countries List of sources to search, comma separated (Max: 50).
+ * Look at [FinnhubApi.globalFilingsSearchFilter] endpoint to see all available values.
+ * @property acts List of SEC's exchanges act to search, comma separated.
+ * Look at [FinnhubApi.globalFilingsSearchFilter] endpoint to see all available values.
+ * @property caps List of market capitalization to search, comma separated.
+ * Look at [FinnhubApi.globalFilingsSearchFilter] endpoint to see all available values.
  * @property fromDate Search from date in format: YYYY-MM-DD, default from the last 2 years
  * @property toDate Search to date in format: YYYY-MM-DD, default to today
  * @property page Use for pagination, default to page 1
- * @property sort Sort result by, default: sortMostRecent. Look at <code>/filter</code> endpoint to see all available values.
+ * @property sort Sort result by, default: sortMostRecent.
+ * Look at [FinnhubApi.globalFilingsSearchFilter] endpoint to see all available values.
  * @property highlighted Enable highlight in returned filings. If enabled, only return 10 results each time
  */
 @Serializable

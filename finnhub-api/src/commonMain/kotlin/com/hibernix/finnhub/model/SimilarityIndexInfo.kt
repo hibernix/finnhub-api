@@ -6,14 +6,18 @@ import kotlinx.serialization.Serializable
 /**
  * @property cik CIK.
  * @property item1 Cosine similarity of Item 1 (Business). This number is only available for Annual reports.
- * @property item1a Cosine similarity of Item 1A (Risk Factors). This number is available for both Annual and Quarterly reports.
- * @property item2 Cosine similarity of Item 2 (Management’s Discussion and Analysis of Financial Condition and Results of Operations). This number is only available for Quarterly reports.
- * @property item7 Cosine similarity of Item 7 (Management’s Discussion and Analysis of Financial Condition and Results of Operations). This number is only available for Annual reports.
- * @property item7a Cosine similarity of Item 7A (Quantitative and Qualitative Disclosures About Market Risk). This number is only available for Annual reports.
+ * @property item1a Cosine similarity of Item 1A (Risk Factors). This number is available for both Annual
+ * and Quarterly reports.
+ * @property item2 Cosine similarity of Item 2 (Management’s Discussion and Analysis of Financial Condition
+ * and Results of Operations). This number is only available for Quarterly reports.
+ * @property item7 Cosine similarity of Item 7 (Management’s Discussion and Analysis of Financial Condition
+ * and Results of Operations). This number is only available for Annual reports.
+ * @property item7a Cosine similarity of Item 7A (Quantitative and Qualitative Disclosures About Market Risk).
+ * This number is only available for Annual reports.
  * @property accessNumber Access number.
  * @property form Form type.
- * @property filedDate Filed date <code>%Y-%m-%d %H:%M:%S</code>.
- * @property acceptedDate Accepted date <code>%Y-%m-%d %H:%M:%S</code>.
+ * @property filedDate Filed date *%Y-%m-%d %H:%M:%S*.
+ * @property acceptedDate Accepted date *%Y-%m-%d %H:%M:%S*.
  * @property reportUrl Report's URL.
  * @property filingUrl Filing's URL.
  */

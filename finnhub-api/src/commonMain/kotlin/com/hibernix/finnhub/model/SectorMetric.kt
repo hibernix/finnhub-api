@@ -5,10 +5,10 @@ import kotlinx.serialization.Serializable
 
 /**
  * @property region Region.
- * @property `data` Metrics for each sector.
+ * @property data Metrics for each sector.
  */
 @Serializable
 data class SectorMetric(
     @SerialName("region") var region: String? = null,
-    @SerialName("data") var `data`: List<SectorMetricData>? = null
+    @SerialName("data") var data: List<SectorMetricData>? = null
 )

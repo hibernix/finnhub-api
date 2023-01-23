@@ -5,10 +5,10 @@ import kotlinx.serialization.Serializable
 
 /**
  * @property symbol Symbol of the company.
- * @property `data` Array of sentiment data.
+ * @property data Array of sentiment data.
  */
 @Serializable
 data class InsiderSentiments(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("data") var `data`: List<InsiderSentimentsData>? = null
+    @SerialName("data") var data: List<InsiderSentimentsData>? = null
 )

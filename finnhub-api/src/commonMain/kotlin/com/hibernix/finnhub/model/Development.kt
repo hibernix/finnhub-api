@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 /**
  * @property symbol Company symbol.
- * @property datetime Published time in <code>YYYY-MM-DD HH:MM:SS</code> format.
+ * @property datetime Published time in *YYYY-MM-DD HH:MM:SS* format.
  * @property headline Development headline.
  * @property description Development description.
  * @property url URL.

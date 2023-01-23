@@ -13,7 +13,8 @@ import kotlinx.datetime.LocalDate
  * @property recordDate Record date.
  * @property declarationDate Declaration date.
  * @property currency Currency.
- * @property freq Dividend frequency. Can be 1 of the following values: 0: Annually, 1: Monthly, 2: Quarterly, 3: Semi-annually, 4: Other/Unknown, 5: Bimonthly, 6: Trimesterly, 7: Weekly
+ * @property freq Dividend frequency. Can be 1 of the following values: 0: Annually, 1: Monthly, 2: Quarterly,
+ * 3: Semi-annually, 4: Other/Unknown, 5: Bimonthly, 6: Trimesterly, 7: Weekly
  */
 @Serializable
 data class Dividends(

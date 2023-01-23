@@ -6,7 +6,7 @@ import kotlinx.datetime.LocalDate
 
 /**
  * @property symbol Symbol
- * @property action <code>add</code> or <code>remove</code>.
+ * @property action ```add``` or ```remove```.
  * @property date Date of joining or leaving the index.
  */
 @Serializable

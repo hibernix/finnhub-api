@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 /**
  * @property symbol Symbol.
  * @property companyName Company name.
- * @property filedDate Filed date <code>%Y-%m-%d %H:%M:%S</code>.
+ * @property filedDate Filed date ```%Y-%m-%d %H:%M:%S```.
  * @property category Category.
  * @property title Document's title.
  * @property description Document's description.

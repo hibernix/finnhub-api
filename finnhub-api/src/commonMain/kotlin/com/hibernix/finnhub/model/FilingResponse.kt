@@ -23,7 +23,7 @@ data class FilingResponse(
     @SerialName("filingId") var filingId: String? = null,
     @SerialName("title") var title: String? = null,
     @SerialName("filerId") var filerId: String? = null,
-    @SerialName("symbol") var symbol: Map<String, String?>? = null, // TODO: Any -> String
+    @SerialName("symbol") var symbol: List<String>? = null,
     @SerialName("name") var name: String? = null,
     @SerialName("acceptanceDate") var acceptanceDate: String? = null,
     @SerialName("filedDate") var filedDate: String? = null,

@@ -8,8 +8,8 @@ import kotlinx.serialization.Serializable
  * @property symbol Symbol.
  * @property cik CIK.
  * @property form Form type.
- * @property filedDate Filed date <code>%Y-%m-%d %H:%M:%S</code>.
- * @property acceptedDate Accepted date <code>%Y-%m-%d %H:%M:%S</code>.
+ * @property filedDate Filed date ```%Y-%m-%d %H:%M:%S```.
+ * @property acceptedDate Accepted date ```%Y-%m-%d %H:%M:%S```.
  * @property reportUrl Report's URL.
  * @property filingUrl Filing's URL.
  */

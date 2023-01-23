@@ -11,7 +11,8 @@ import kotlinx.datetime.LocalDate
  * @property aum AUM.
  * @property nav NAV.
  * @property navCurrency NAV currency.
- * @property expenseRatio Expense ratio. For non-US funds, this is the [KID ongoing charges](https://www.esma.europa.eu/sites/default/files/library/2015/11/09_1028_final_kid_ongoing_charges_methodology_for_publication_u_2_.pdf).
+ * @property expenseRatio Expense ratio. For non-US funds, this is the
+ * [KID ongoing charges](https://www.esma.europa.eu/sites/default/files/library/2015/11/09_1028_final_kid_ongoing_charges_methodology_for_publication_u_2_.pdf).
  * @property trackingIndex Tracking Index.
  * @property etfCompany ETF issuer.
  * @property domicile ETF domicile.

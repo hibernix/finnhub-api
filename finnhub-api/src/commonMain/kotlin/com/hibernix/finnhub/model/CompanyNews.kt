@@ -7,7 +7,7 @@ import kotlinx.serialization.Serializable
  * @property category News category.
  * @property datetime Published time in UNIX timestamp.
  * @property headline News headline.
- * @property id News ID. This value can be used for <code>minId</code> params to get the latest news only.
+ * @property id News ID. This value can be used for ```minId``` params to get the latest news only.
  * @property image Thumbnail image URL.
  * @property related Related stocks and companies mentioned in the article.
  * @property source News source.

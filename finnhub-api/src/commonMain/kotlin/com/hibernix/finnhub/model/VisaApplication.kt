@@ -12,7 +12,7 @@ import kotlinx.serialization.Serializable
  * @property receivedDate Received date.
  * @property visaClass Visa class.
  * @property jobTitle Job Title.
- * @property socCode SOC Code. A list of SOC code can be found <a href="https://www.bls.gov/oes/current/oes_stru.htm" target="_blank").
+ * @property socCode SOC Code. A list of SOC code can be found [here](https://www.bls.gov/oes/current/oes_stru.htm).
  * @property fullTimePosition Full-time position flag.
  * @property beginDate Job's start date.
  * @property endDate Job's end date.

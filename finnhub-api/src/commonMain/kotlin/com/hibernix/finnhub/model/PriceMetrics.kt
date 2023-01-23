@@ -5,10 +5,10 @@ import kotlinx.serialization.Serializable
 
 /**
  * @property symbol Symbol of the company.
- * @property `data` Map key-value pair of key ratios and metrics.
+ * @property data Map key-value pair of key ratios and metrics.
  */
 @Serializable
 data class PriceMetrics(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("data") var `data`: PriceMetricMap? = null
+    @SerialName("data") var data: PriceMetricMap? = null
 )

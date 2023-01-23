@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 
 /**
  * @property sector Sector
- * @property metrics Metrics data in key-value format. <code>a</code> and <code>m</code> fields are for average and median respectively.
+ * @property metrics Metrics data in key-value format. *a* and *m* fields are for average and median respectively.
  */
 @Serializable
 data class SectorMetricData(

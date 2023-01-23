@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 /**
  * @property cik Investor's company CIK.
  * @property name Firm's name.
- * @property putCall <code>put</code> or <code>call</code> for options.
+ * @property putCall ```put``` or ```call``` for options.
  * @property change Number of shares change.
  * @property noVoting Number of shares with no voting rights.
  * @property percentage Percentage of portfolio.

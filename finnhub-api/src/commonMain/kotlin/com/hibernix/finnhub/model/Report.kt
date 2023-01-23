@@ -10,10 +10,10 @@ import kotlinx.serialization.Serializable
  * @property year Year.
  * @property quarter Quarter.
  * @property form Form type.
- * @property startDate Period start date <code>%Y-%m-%d %H:%M:%S</code>.
- * @property endDate Period end date <code>%Y-%m-%d %H:%M:%S</code>.
- * @property filedDate Filed date <code>%Y-%m-%d %H:%M:%S</code>.
- * @property acceptedDate Accepted date <code>%Y-%m-%d %H:%M:%S</code>.
+ * @property startDate Period start date ```%Y-%m-%d %H:%M:%S```.
+ * @property endDate Period end date ```%Y-%m-%d %H:%M:%S```.
+ * @property filedDate Filed date ```%Y-%m-%d %H:%M:%S```.
+ * @property acceptedDate Accepted date ```%Y-%m-%d %H:%M:%S```.
  * @property report Report data.
  */
 @Serializable

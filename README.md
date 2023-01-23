@@ -1,4 +1,4 @@
-# <img height=40 style="margin:0 0 -5px 0" src="docs/finnhub-logo.png"/> Finnhub API&nbsp;&nbsp;<i style="color: #555555">(kotlin-multiplatform)</i>
+# <img height=38 style="margin:0 0 -8px 0" src="docs/finnhub-logo.png"/> Finnhub API&nbsp;&nbsp;<i style="color: #555555">(kotlin-multiplatform)</i>
 
 [![Kotlin Beta](https://kotl.in/badges/beta.svg)](https://kotlinlang.org/docs/components-stability.html)
 [![Kotlin](https://img.shields.io/badge/kotlin-1.8.0-blue.svg?logo=kotlin)](http://kotlinlang.org)

@@ -6,14 +6,15 @@ import kotlinx.serialization.Serializable
 /**
  * @property description Symbol description
  * @property displaySymbol Display symbol name.
- * @property symbol Unique symbol used to identify this symbol used in <code>/stock/candle</code> endpoint.
+ * @property symbol Unique symbol used to identify this symbol used in [FinnhubApi.stockCandle] endpoint.
  * @property type Security type.
  * @property mic Primary exchange's MIC.
  * @property figi FIGI identifier.
  * @property shareClassFIGI Global Share Class FIGI.
  * @property currency Price's currency. This might be different from the reporting currency of fundamental data.
  * @property symbol2 Alternative ticker for exchanges with multiple tickers for 1 stock such as BSE.
- * @property isin ISIN. This field is only available for EU stocks and selected Asian markets. Entitlement from Finnhub is required to access this field.
+ * @property isin ISIN. This field is only available for EU stocks and selected Asian markets.
+ * Entitlement from Finnhub is required to access this field.
  */
 @Serializable
 data class StockSymbol(

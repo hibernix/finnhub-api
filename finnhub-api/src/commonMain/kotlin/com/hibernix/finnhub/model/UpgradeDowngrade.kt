@@ -9,7 +9,8 @@ import kotlinx.serialization.Serializable
  * @property fromGrade From grade.
  * @property toGrade To grade.
  * @property company Company/analyst who did the upgrade/downgrade.
- * @property action Action can take any of the following values: <code>up(upgrade), down(downgrade), main(maintains), init(initiate), reit(reiterate)</code>.
+ * @property action Action can take any of the following values:
+ * *up(upgrade), down(downgrade), main(maintains), init(initiate), reit(reiterate)*.
  */
 @Serializable
 data class UpgradeDowngrade(

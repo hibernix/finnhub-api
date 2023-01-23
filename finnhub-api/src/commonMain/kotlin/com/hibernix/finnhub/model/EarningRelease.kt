@@ -7,7 +7,8 @@ import kotlinx.datetime.LocalDate
 /**
  * @property symbol Symbol.
  * @property date Date.
- * @property hour Indicates whether the earnings is announced before market open(<code>bmo</code>), after market close(<code>amc</code>), or during market hour(<code>dmh</code>).
+ * @property hour Indicates whether the earnings is announced before market open(*bmo*), after market close(*amc*),
+ * or during market hour(*dmh*).
  * @property year Earnings year.
  * @property quarter Earnings quarter.
  * @property epsEstimate EPS estimate.
