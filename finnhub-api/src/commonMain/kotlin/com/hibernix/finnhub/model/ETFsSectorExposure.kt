@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ETFsSectorExposure(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("sectorExposure") var sectorExposure: List<ETFSectorExposureData>? = null
+    @SerialName("sectorExposure") var sectorExposure: List<ETFSectorExposureData>? = null,
 )

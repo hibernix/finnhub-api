@@ -8,5 +8,5 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class SupportResistance(
-    @SerialName("levels") var levels: List<Float>? = null
+    @SerialName("levels") var levels: List<Float>? = null,
 )

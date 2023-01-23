@@ -8,5 +8,5 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class EconomicCalendar(
-    @SerialName("economicCalendar") var economicCalendar: List<EconomicEvent>? = null
+    @SerialName("economicCalendar") var economicCalendar: List<EconomicEvent>? = null,
 )

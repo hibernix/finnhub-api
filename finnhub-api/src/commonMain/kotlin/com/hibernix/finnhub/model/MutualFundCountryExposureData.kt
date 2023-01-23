@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class MutualFundCountryExposureData(
     @SerialName("country") var country: String? = null,
-    @SerialName("exposure") var exposure: Float? = null
+    @SerialName("exposure") var exposure: Float? = null,
 )

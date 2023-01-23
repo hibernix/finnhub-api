@@ -20,5 +20,5 @@ data class Candles(
     @SerialName("c") var c: List<Float>? = null,
     @SerialName("v") var v: List<Float>? = null,
     @SerialName("t") var t: List<Long>? = null,
-    @SerialName("s") var s: String? = null
+    @SerialName("s") var s: String? = null,
 )

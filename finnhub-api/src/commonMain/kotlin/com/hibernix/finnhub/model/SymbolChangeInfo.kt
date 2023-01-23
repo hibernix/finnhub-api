@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class SymbolChangeInfo(
     @SerialName("atDate") var atDate: String? = null,
     @SerialName("oldSymbol") var oldSymbol: String? = null,
-    @SerialName("newSymbol") var newSymbol: String? = null
+    @SerialName("newSymbol") var newSymbol: String? = null,
 )

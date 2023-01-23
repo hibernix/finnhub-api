@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class UsptoPatentResult(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("data") var data: List<UsptoPatent>? = null
+    @SerialName("data") var data: List<UsptoPatent>? = null,
 )

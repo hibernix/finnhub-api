@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class AggregateIndicators(
     @SerialName("technicalAnalysis") var technicalAnalysis: TechnicalAnalysis? = null,
-    @SerialName("trend") var trend: Trend? = null
+    @SerialName("trend") var trend: Trend? = null,
 )

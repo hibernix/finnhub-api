@@ -18,5 +18,5 @@ data class CompanyESG(
     @SerialName("environmentScore") var environmentScore: Float? = null,
     @SerialName("governanceScore") var governanceScore: Float? = null,
     @SerialName("socialScore") var socialScore: Float? = null,
-    @SerialName("data") var data: CompanyESGMap? = null
+    @SerialName("data") var data: CompanyESGMap? = null,
 )

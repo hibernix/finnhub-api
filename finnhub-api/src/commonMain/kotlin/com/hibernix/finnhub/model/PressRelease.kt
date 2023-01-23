@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PressRelease(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("majorDevelopment") var majorDevelopment: List<Development>? = null
+    @SerialName("majorDevelopment") var majorDevelopment: List<Development>? = null,
 )

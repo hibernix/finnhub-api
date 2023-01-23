@@ -30,5 +30,5 @@ data class KeyCustomersSuppliers(
     @SerialName("sixMonthCorrelation") var sixMonthCorrelation: Float? = null,
     @SerialName("threeMonthCorrelation") var threeMonthCorrelation: Float? = null,
     @SerialName("twoWeekCorrelation") var twoWeekCorrelation: Float? = null,
-    @SerialName("twoYearCorrelation") var twoYearCorrelation: Float? = null
+    @SerialName("twoYearCorrelation") var twoYearCorrelation: Float? = null,
 )

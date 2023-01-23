@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.LocalDate
 
 /**
  * @property name Investor's name.
@@ -15,5 +15,5 @@ data class OwnershipInfo(
     @SerialName("name") var name: String? = null,
     @SerialName("share") var share: Long? = null,
     @SerialName("change") var change: Long? = null,
-    @SerialName("filingDate") var filingDate: LocalDate? = null
+    @SerialName("filingDate") var filingDate: LocalDate? = null,
 )

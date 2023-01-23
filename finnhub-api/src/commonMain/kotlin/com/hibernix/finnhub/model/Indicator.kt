@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class Indicator(
     @SerialName("buy") var buy: Long? = null,
     @SerialName("neutral") var neutral: Long? = null,
-    @SerialName("sell") var sell: Long? = null
+    @SerialName("sell") var sell: Long? = null,
 )

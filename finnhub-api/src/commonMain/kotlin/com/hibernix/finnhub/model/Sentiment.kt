@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Sentiment(
     @SerialName("bearishPercent") var bearishPercent: Float? = null,
-    @SerialName("bullishPercent") var bullishPercent: Float? = null
+    @SerialName("bullishPercent") var bullishPercent: Float? = null,
 )

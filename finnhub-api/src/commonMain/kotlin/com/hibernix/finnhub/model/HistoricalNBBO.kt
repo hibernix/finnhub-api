@@ -33,5 +33,5 @@ data class HistoricalNBBO(
     @SerialName("b") var b: List<Float>? = null,
     @SerialName("bx") var bx: List<String>? = null,
     @SerialName("t") var t: List<Long>? = null,
-    @SerialName("c") var c: List<List<String>>? = null
+    @SerialName("c") var c: List<List<String>>? = null,
 )

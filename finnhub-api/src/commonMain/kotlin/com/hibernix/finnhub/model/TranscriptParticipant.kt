@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class TranscriptParticipant(
     @SerialName("name") var name: String? = null,
     @SerialName("description") var description: String? = null,
-    @SerialName("role") var role: String? = null
+    @SerialName("role") var role: String? = null,
 )

@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class InvestmentThemes(
     @SerialName("theme") var theme: String? = null,
-    @SerialName("data") var data: List<InvestmentThemePortfolio>? = null
+    @SerialName("data") var data: List<InvestmentThemePortfolio>? = null,
 )

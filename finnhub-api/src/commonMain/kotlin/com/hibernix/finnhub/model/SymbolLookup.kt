@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class SymbolLookup(
     @SerialName("result") var result: List<SymbolLookupInfo>? = null,
-    @SerialName("count") var count: Long? = null
+    @SerialName("count") var count: Long? = null,
 )

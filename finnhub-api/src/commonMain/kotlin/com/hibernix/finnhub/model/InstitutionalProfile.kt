@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class InstitutionalProfile(
     @SerialName("cik") var cik: String? = null,
-    @SerialName("data") var data: List<InstitutionalProfileInfo>? = null
+    @SerialName("data") var data: List<InstitutionalProfileInfo>? = null,
 )

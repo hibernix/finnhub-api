@@ -22,5 +22,5 @@ data class CountryMetadata(
     @SerialName("currency") var currency: String? = null,
     @SerialName("currencyCode") var currencyCode: String? = null,
     @SerialName("region") var region: String? = null,
-    @SerialName("subRegion") var subRegion: String? = null
+    @SerialName("subRegion") var subRegion: String? = null,
 )

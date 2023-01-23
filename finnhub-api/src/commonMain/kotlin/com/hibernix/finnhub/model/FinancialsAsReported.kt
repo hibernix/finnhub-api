@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class FinancialsAsReported(
     @SerialName("symbol") var symbol: String? = null,
     @SerialName("cik") var cik: String? = null,
-    @SerialName("data") var data: List<Report>? = null
+    @SerialName("data") var data: List<Report>? = null,
 )

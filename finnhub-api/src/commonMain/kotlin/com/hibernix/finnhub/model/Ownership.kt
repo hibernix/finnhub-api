@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Ownership(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("ownership") var ownership: List<OwnershipInfo>? = null
+    @SerialName("ownership") var ownership: List<OwnershipInfo>? = null,
 )

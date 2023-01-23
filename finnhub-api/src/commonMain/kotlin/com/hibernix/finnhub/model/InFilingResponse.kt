@@ -34,5 +34,5 @@ data class InFilingResponse(
     @SerialName("source") var source: String? = null,
     @SerialName("pageCount") var pageCount: Int? = null,
     @SerialName("documentCount") var documentCount: Int? = null,
-    @SerialName("documents") var documents: List<DocumentResponse>? = null
+    @SerialName("documents") var documents: List<DocumentResponse>? = null,
 )

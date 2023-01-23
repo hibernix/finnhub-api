@@ -24,5 +24,5 @@ data class MarketNews(
     @SerialName("related") var related: String? = null,
     @SerialName("source") var source: String? = null,
     @SerialName("summary") var summary: String? = null,
-    @SerialName("url") var url: String? = null
+    @SerialName("url") var url: String? = null,
 )

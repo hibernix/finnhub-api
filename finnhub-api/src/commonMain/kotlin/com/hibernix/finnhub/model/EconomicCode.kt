@@ -14,5 +14,5 @@ data class EconomicCode(
     @SerialName("code") var code: String? = null,
     @SerialName("country") var country: String? = null,
     @SerialName("name") var name: String? = null,
-    @SerialName("unit") var unit: String? = null
+    @SerialName("unit") var unit: String? = null,
 )

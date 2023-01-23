@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Forexrates(
     @SerialName("base") var base: String? = null,
-    @SerialName("quote") var quote: ForexRate? = null
+    @SerialName("quote") var quote: ForexRate? = null,
 )

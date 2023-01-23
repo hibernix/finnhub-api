@@ -24,5 +24,5 @@ data class InternationalFiling(
     @SerialName("description") var description: String? = null,
     @SerialName("url") var url: String? = null,
     @SerialName("language") var language: String? = null,
-    @SerialName("country") var country: String? = null
+    @SerialName("country") var country: String? = null,
 )

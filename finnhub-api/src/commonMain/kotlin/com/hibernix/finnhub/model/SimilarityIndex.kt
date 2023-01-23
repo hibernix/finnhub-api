@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class SimilarityIndex(
     @SerialName("symbol") var symbol: String? = null,
     @SerialName("cik") var cik: String? = null,
-    @SerialName("similarity") var similarity: List<SimilarityIndexInfo>? = null
+    @SerialName("similarity") var similarity: List<SimilarityIndexInfo>? = null,
 )

@@ -8,5 +8,5 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class IPOCalendar(
-    @SerialName("ipoCalendar") var ipoCalendar: List<IPOEvent>? = null
+    @SerialName("ipoCalendar") var ipoCalendar: List<IPOEvent>? = null,
 )

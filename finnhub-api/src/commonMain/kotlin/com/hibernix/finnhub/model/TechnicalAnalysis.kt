@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class TechnicalAnalysis(
     @SerialName("count") var count: Indicator? = null,
-    @SerialName("signal") var signal: String? = null
+    @SerialName("signal") var signal: String? = null,
 )

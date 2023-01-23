@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import com.hibernix.finnhub.api.FinnhubApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import com.hibernix.finnhub.api.FinnhubApi
 
 /**
  * @property query Search query
@@ -61,5 +61,5 @@ data class SearchBody(
     @SerialName("toDate") var toDate: String? = null,
     @SerialName("page") var page: String? = null,
     @SerialName("sort") var sort: String? = null,
-    @SerialName("highlighted") var highlighted: Boolean? = null
+    @SerialName("highlighted") var highlighted: Boolean? = null,
 )

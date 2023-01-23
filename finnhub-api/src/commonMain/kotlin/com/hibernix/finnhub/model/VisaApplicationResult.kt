@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class VisaApplicationResult(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("data") var data: List<VisaApplication>? = null
+    @SerialName("data") var data: List<VisaApplication>? = null,
 )

@@ -16,5 +16,5 @@ data class Development(
     @SerialName("datetime") var datetime: String? = null,
     @SerialName("headline") var headline: String? = null,
     @SerialName("description") var description: String? = null,
-    @SerialName("url") var url: String? = null
+    @SerialName("url") var url: String? = null,
 )

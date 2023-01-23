@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ETFSectorExposureData(
     @SerialName("industry") var industry: String? = null,
-    @SerialName("exposure") var exposure: Float? = null
+    @SerialName("exposure") var exposure: Float? = null,
 )

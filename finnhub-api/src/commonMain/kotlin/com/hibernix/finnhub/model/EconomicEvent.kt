@@ -22,5 +22,5 @@ data class EconomicEvent(
     @SerialName("estimate") var estimate: Float? = null,
     @SerialName("event") var event: String? = null,
     @SerialName("impact") var impact: String? = null,
-    @SerialName("time") var time: String? = null
+    @SerialName("time") var time: String? = null,
 )

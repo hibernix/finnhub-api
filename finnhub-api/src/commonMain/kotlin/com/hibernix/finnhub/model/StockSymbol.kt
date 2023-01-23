@@ -27,5 +27,5 @@ data class StockSymbol(
     @SerialName("shareClassFIGI") var shareClassFIGI: String? = null,
     @SerialName("currency") var currency: String? = null,
     @SerialName("symbol2") var symbol2: String? = null,
-    @SerialName("isin") var isin: String? = null
+    @SerialName("isin") var isin: String? = null,
 )

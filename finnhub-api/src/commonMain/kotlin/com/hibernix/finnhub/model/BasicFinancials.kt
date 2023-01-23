@@ -14,5 +14,5 @@ data class BasicFinancials(
     @SerialName("symbol") var symbol: String? = null,
     @SerialName("metricType") var metricType: String? = null,
     @SerialName("series") var series: MetricSeriesMap? = null,
-    @SerialName("metric") var metric: MetricMap? = null
+    @SerialName("metric") var metric: MetricMap? = null,
 )

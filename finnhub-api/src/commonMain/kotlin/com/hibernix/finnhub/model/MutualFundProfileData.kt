@@ -68,5 +68,5 @@ data class MutualFundProfileData(
     @SerialName("classId") var classId: String? = null,
     @SerialName("className") var className: String? = null,
     @SerialName("sfdrClassification") var sfdrClassification: String? = null,
-    @SerialName("currency") var currency: String? = null
+    @SerialName("currency") var currency: String? = null,
 )

@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class SupplyChainRelationships(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("data") var data: List<KeyCustomersSuppliers>? = null
+    @SerialName("data") var data: List<KeyCustomersSuppliers>? = null,
 )

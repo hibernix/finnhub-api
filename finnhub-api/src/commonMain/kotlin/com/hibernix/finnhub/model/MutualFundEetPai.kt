@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class MutualFundEetPai(
     @SerialName("isin") var isin: String? = null,
-    @SerialName("data") var data: MutualFundEetPaiData? = null
+    @SerialName("data") var data: MutualFundEetPaiData? = null,
 )

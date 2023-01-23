@@ -46,5 +46,5 @@ data class UsaSpending(
     @SerialName("performanceZipCode") var performanceZipCode: String? = null,
     @SerialName("performanceCongressionalDistrict") var performanceCongressionalDistrict: String? = null,
     @SerialName("naicsCode") var naicsCode: String? = null,
-    @SerialName("permalink") var permalink: String? = null
+    @SerialName("permalink") var permalink: String? = null,
 )

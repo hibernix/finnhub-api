@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.LocalDate
 
 /**
  * @property symbol Symbol.
@@ -15,5 +15,5 @@ data class MutualFundHoldings(
     @SerialName("symbol") var symbol: String? = null,
     @SerialName("atDate") var atDate: LocalDate? = null,
     @SerialName("numberOfHoldings") var numberOfHoldings: Long? = null,
-    @SerialName("holdings") var holdings: List<MutualFundHoldingsData>? = null
+    @SerialName("holdings") var holdings: List<MutualFundHoldingsData>? = null,
 )

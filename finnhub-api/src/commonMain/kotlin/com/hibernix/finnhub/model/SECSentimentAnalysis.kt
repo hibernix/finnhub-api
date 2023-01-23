@@ -14,5 +14,5 @@ data class SECSentimentAnalysis(
     @SerialName("accessNumber") var accessNumber: String? = null,
     @SerialName("symbol") var symbol: String? = null,
     @SerialName("cik") var cik: String? = null,
-    @SerialName("sentiment") var sentiment: FilingSentiment? = null
+    @SerialName("sentiment") var sentiment: FilingSentiment? = null,
 )

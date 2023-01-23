@@ -16,5 +16,5 @@ data class LastBidMinusAsk(
     @SerialName("a") var a: Float? = null,
     @SerialName("bv") var bv: Float? = null,
     @SerialName("av") var av: Float? = null,
-    @SerialName("t") var t: Long? = null
+    @SerialName("t") var t: Long? = null,
 )

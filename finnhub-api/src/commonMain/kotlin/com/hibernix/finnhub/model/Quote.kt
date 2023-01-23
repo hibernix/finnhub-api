@@ -20,5 +20,5 @@ data class Quote(
     @SerialName("c") var c: Float? = null,
     @SerialName("pc") var pc: Float? = null,
     @SerialName("d") var d: Float? = null,
-    @SerialName("dp") var dp: Float? = null
+    @SerialName("dp") var dp: Float? = null,
 )

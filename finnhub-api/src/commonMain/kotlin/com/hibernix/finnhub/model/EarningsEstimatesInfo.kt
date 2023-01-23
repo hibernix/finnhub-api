@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.LocalDate
 
 /**
  * @property epsAvg Average EPS estimates including Finnhub's proprietary estimates.
@@ -17,5 +17,5 @@ data class EarningsEstimatesInfo(
     @SerialName("epsHigh") var epsHigh: Float? = null,
     @SerialName("epsLow") var epsLow: Float? = null,
     @SerialName("numberAnalysts") var numberAnalysts: Long? = null,
-    @SerialName("period") var period: LocalDate? = null
+    @SerialName("period") var period: LocalDate? = null,
 )

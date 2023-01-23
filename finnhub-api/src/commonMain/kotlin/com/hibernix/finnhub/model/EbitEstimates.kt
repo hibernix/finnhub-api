@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class EbitEstimates(
     @SerialName("data") var data: List<EbitEstimatesInfo>? = null,
     @SerialName("freq") var freq: String? = null,
-    @SerialName("symbol") var symbol: String? = null
+    @SerialName("symbol") var symbol: String? = null,
 )

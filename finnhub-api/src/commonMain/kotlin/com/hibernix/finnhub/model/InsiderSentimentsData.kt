@@ -16,5 +16,5 @@ data class InsiderSentimentsData(
     @SerialName("year") var year: Long? = null,
     @SerialName("month") var month: Long? = null,
     @SerialName("change") var change: Long? = null,
-    @SerialName("mspr") var mspr: Float? = null
+    @SerialName("mspr") var mspr: Float? = null,
 )

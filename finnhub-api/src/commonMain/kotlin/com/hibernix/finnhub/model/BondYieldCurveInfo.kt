@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class BondYieldCurveInfo(
     @SerialName("d") var d: String? = null,
-    @SerialName("v") var v: Float? = null
+    @SerialName("v") var v: Float? = null,
 )

@@ -25,5 +25,5 @@ data class FilingSentiment(
     // TODO !!! "-"
     @SerialName("modal-weak") var modalWeak: Float? = null,
     @SerialName("modal-strong") var modalStrong: Float? = null,
-    @SerialName("modal-moderate") var modalModerate: Float? = null
+    @SerialName("modal-moderate") var modalModerate: Float? = null,
 )

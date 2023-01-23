@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class SocialSentiment(
     @SerialName("symbol") var symbol: String? = null,
     @SerialName("reddit") var reddit: List<RedditSentimentContent>? = null,
-    @SerialName("twitter") var twitter: List<TwitterSentimentContent>? = null
+    @SerialName("twitter") var twitter: List<TwitterSentimentContent>? = null,
 )

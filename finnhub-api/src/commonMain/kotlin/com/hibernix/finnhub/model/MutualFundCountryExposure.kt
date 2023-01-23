@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class MutualFundCountryExposure(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("countryExposure") var countryExposure: List<MutualFundCountryExposureData>? = null
+    @SerialName("countryExposure") var countryExposure: List<MutualFundCountryExposureData>? = null,
 )

@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.LocalDate
 
 /**
  * @property symbol Symbol.
@@ -26,5 +26,5 @@ data class EarningRelease(
     @SerialName("epsEstimate") var epsEstimate: Float? = null,
     @SerialName("epsActual") var epsActual: Float? = null,
     @SerialName("revenueEstimate") var revenueEstimate: Float? = null,
-    @SerialName("revenueActual") var revenueActual: Float? = null
+    @SerialName("revenueActual") var revenueActual: Float? = null,
 )

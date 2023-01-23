@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Trend(
     @SerialName("adx") var adx: Float? = null,
-    @SerialName("trending") var trending: Boolean? = null
+    @SerialName("trending") var trending: Boolean? = null,
 )

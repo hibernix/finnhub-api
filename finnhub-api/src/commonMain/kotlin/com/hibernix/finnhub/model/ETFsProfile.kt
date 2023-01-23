@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class ETFsProfile(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("profile") var profile: ETFProfileData? = null
+    @SerialName("profile") var profile: ETFProfileData? = null,
 )

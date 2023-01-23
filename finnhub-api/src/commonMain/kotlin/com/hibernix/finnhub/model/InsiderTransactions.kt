@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class InsiderTransactions(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("data") var data: List<Transactions>? = null
+    @SerialName("data") var data: List<Transactions>? = null,
 )

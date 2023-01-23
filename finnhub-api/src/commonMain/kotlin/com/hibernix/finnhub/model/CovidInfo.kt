@@ -14,5 +14,5 @@ data class CovidInfo(
     @SerialName("state") var state: String? = null,
     @SerialName("case") var case: Float? = null,
     @SerialName("death") var death: Float? = null,
-    @SerialName("updated") var updated: String? = null
+    @SerialName("updated") var updated: String? = null,
 )

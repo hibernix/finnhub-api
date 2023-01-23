@@ -20,5 +20,5 @@ data class RecommendationTrend(
     @SerialName("period") var period: String? = null,
     @SerialName("sell") var sell: Long? = null,
     @SerialName("strongBuy") var strongBuy: Long? = null,
-    @SerialName("strongSell") var strongSell: Long? = null
+    @SerialName("strongSell") var strongSell: Long? = null,
 )

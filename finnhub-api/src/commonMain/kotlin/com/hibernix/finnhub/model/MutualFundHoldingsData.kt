@@ -20,5 +20,5 @@ data class MutualFundHoldingsData(
     @SerialName("cusip") var cusip: String? = null,
     @SerialName("share") var share: Float? = null,
     @SerialName("percent") var percent: Float? = null,
-    @SerialName("value") var value: Float? = null
+    @SerialName("value") var value: Float? = null,
 )

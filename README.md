@@ -50,21 +50,60 @@ sourceSets {
 
 ## Usage
 
-```kotlin
+#### REST API:
 
-val finnhubApi = FinnhubApi.create(apiKey = "<your finnhub API key>")
+```kotlin
+ val finnhubApi = FinnhubApi.create(apiKey = "<finnhub API key>")
 
 scope.launch {
-    val timeSeriesBars = finnhubApi.cryptoCandles(
+    // company profile
+    finnhubApi.companyProfile2("AAPL").let { println(it) }
+
+    // price candles history
+    val fromDate = LocalDate.parse("2022-01-01").atStartOfDayIn(TimeZone.UTC)
+    finnhubApi.cryptoCandles(
         symbol = "BINANCE:BTCUSDT",
-        resolution = "D",
-        from = LocalDate.parse("2022-01-01").atStartOfDayIn(Timezone.UTC).epochSeconds,
-        to = LocalDate.parse("2022-01-05").atStartOfDayIn(Timezone.UTC).epochSeconds,
+        resolution = "60",
+        from = fromDate.epochSeconds,
+        to = (fromDate + 3.days).epochSeconds,
     )
-    timeSeriesBars.forEach { ... }
+        .toCandleList() // convenience method that converts the response to a more useful list of candles
+        .forEach { candle -> println("$candle") }
 }
+```
+
+#### WebSocket:
+
+```kotlin
+val ws = FinnhubWebSocket.create("finnhub API key")
+
+ws.onError = { error -> ... }
+ws.connect {
+    subscribeTrades("AAPL")
+    subscribeNews("GOOGL")
+}
+
+ws.tradesFlow.onEach { trades ->  // you can lso use flow.collect {} in coroutine
+    trades.forEach { trade -> println("Trade: $trade") }
+}.launchIn(GlobalScope) // use your regular scope
+
+ws.newsFlow.onEach { news -> ... }
+    .launchIn(GlobalScope) // use your regular scope
+
+
 ```
 
 ## Documentation
 
 See official [Finnhub API Docs](https://finnhub.io/docs/api)
+or [project docs](https://hibernix.github.io/finnhub-api/docs)
+
+## Samples
+
+Check some examples in samples folder (coming soon)
+
+## ToDo
+
+- [ ] Error response transformation for REST API
+- [ ] Examples
+- [ ] WebSocket ping and auto-reconnect

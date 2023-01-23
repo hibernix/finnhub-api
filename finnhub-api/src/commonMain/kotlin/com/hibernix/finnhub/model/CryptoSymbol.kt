@@ -13,5 +13,5 @@ import kotlinx.serialization.Serializable
 data class CryptoSymbol(
     @SerialName("description") var description: String? = null,
     @SerialName("displaySymbol") var displaySymbol: String? = null,
-    @SerialName("symbol") var symbol: String? = null
+    @SerialName("symbol") var symbol: String? = null,
 )

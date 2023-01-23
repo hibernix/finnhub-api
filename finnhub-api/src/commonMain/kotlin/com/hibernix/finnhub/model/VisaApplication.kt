@@ -52,5 +52,5 @@ data class VisaApplication(
     @SerialName("wageRangeTo") var wageRangeTo: Float? = null,
     @SerialName("wageUnitOfPay") var wageUnitOfPay: String? = null,
     @SerialName("wageLevel") var wageLevel: String? = null,
-    @SerialName("h1bDependent") var h1bDependent: String? = null
+    @SerialName("h1bDependent") var h1bDependent: String? = null,
 )

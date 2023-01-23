@@ -48,5 +48,5 @@ data class BondProfile(
     @SerialName("paymentFrequency") var paymentFrequency: String? = null,
     @SerialName("securityLevel") var securityLevel: String? = null,
     @SerialName("callable") var callable: Boolean? = null,
-    @SerialName("couponType") var couponType: String? = null
+    @SerialName("couponType") var couponType: String? = null,
 )

@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class InstitutionalOwnershipGroup(
     @SerialName("reportDate") var reportDate: String? = null,
-    @SerialName("ownership") var ownership: List<InstitutionalOwnershipInfo>? = null
+    @SerialName("ownership") var ownership: List<InstitutionalOwnershipInfo>? = null,
 )

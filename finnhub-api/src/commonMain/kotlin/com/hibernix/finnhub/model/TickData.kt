@@ -26,5 +26,5 @@ data class TickData(
     @SerialName("p") var p: List<Float>? = null,
     @SerialName("t") var t: List<Long>? = null,
     @SerialName("x") var x: List<String>? = null,
-    @SerialName("c") var c: List<List<String>>? = null
+    @SerialName("c") var c: List<List<String>>? = null,
 )

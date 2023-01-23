@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class PriceMetrics(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("data") var data: PriceMetricMap? = null
+    @SerialName("data") var data: PriceMetricMap? = null,
 )

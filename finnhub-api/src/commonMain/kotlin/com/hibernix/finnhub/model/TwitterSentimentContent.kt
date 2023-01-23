@@ -20,5 +20,5 @@ data class TwitterSentimentContent(
     @SerialName("positiveScore") var positiveScore: Float? = null,
     @SerialName("negativeScore") var negativeScore: Float? = null,
     @SerialName("score") var score: Float? = null,
-    @SerialName("atTime") var atTime: String? = null
+    @SerialName("atTime") var atTime: String? = null,
 )

@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class BreakdownItem(
     @SerialName("accessNumber") var accessNumber: String? = null,
-    @SerialName("breakdown") var breakdown: BreakdownItemMap? = null
+    @SerialName("breakdown") var breakdown: BreakdownItemMap? = null,
 )

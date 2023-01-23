@@ -8,5 +8,5 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class PatternRecognition(
-    @SerialName("points") var points: List<ScanPattern>? = null
+    @SerialName("points") var points: List<ScanPattern>? = null,
 )

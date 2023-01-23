@@ -22,5 +22,5 @@ data class Filing(
     @SerialName("filedDate") var filedDate: String? = null,
     @SerialName("acceptedDate") var acceptedDate: String? = null,
     @SerialName("reportUrl") var reportUrl: String? = null,
-    @SerialName("filingUrl") var filingUrl: String? = null
+    @SerialName("filingUrl") var filingUrl: String? = null,
 )

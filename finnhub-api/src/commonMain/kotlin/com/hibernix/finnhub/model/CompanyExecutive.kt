@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class CompanyExecutive(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("executive") var executive: List<Company>? = null
+    @SerialName("executive") var executive: List<Company>? = null,
 )

@@ -32,5 +32,5 @@ data class FilingResponse(
     @SerialName("amend") var amend: Boolean? = null,
     @SerialName("source") var source: String? = null,
     @SerialName("pageCount") var pageCount: Int? = null,
-    @SerialName("documentCount") var documentCount: Int? = null
+    @SerialName("documentCount") var documentCount: Int? = null,
 )

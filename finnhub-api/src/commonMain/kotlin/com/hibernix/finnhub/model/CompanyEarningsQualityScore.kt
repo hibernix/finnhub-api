@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class CompanyEarningsQualityScore(
     @SerialName("symbol") var symbol: String? = null,
     @SerialName("freq") var freq: String? = null,
-    @SerialName("data") var data: List<CompanyEarningsQualityScoreData>? = null
+    @SerialName("data") var data: List<CompanyEarningsQualityScoreData>? = null,
 )

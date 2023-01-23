@@ -15,5 +15,5 @@ data class SymbolLookupInfo(
     @SerialName("description") var description: String? = null,
     @SerialName("displaySymbol") var displaySymbol: String? = null,
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("type") var type: String? = null
+    @SerialName("type") var type: String? = null,
 )

@@ -14,5 +14,5 @@ data class ExcerptResponse(
     @SerialName("content") var content: String? = null,
     @SerialName("snippetId") var snippetId: String? = null,
     @SerialName("startOffset") var startOffset: String? = null,
-    @SerialName("endOffset") var endOffset: String? = null
+    @SerialName("endOffset") var endOffset: String? = null,
 )

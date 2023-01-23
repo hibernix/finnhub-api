@@ -20,5 +20,5 @@ data class CompanyEarningsQualityScoreData(
     @SerialName("cashGenerationCapitalAllocation") var cashGenerationCapitalAllocation: Float? = null,
     @SerialName("leverage") var leverage: Float? = null,
     @SerialName("score") var score: Float? = null,
-    @SerialName("letterScore") var letterScore: String? = null
+    @SerialName("letterScore") var letterScore: String? = null,
 )

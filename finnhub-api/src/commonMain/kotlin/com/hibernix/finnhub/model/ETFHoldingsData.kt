@@ -22,5 +22,5 @@ data class ETFHoldingsData(
     @SerialName("share") var share: Float? = null,
     @SerialName("percent") var percent: Float? = null,
     @SerialName("value") var value: Float? = null,
-    @SerialName("assetType") var assetType: String? = null
+    @SerialName("assetType") var assetType: String? = null,
 )

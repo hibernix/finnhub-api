@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.LocalDate
 
 /**
  * @property symbol Symbol.
@@ -23,5 +23,5 @@ data class IPOEvent(
     @SerialName("status") var status: String? = null,
     @SerialName("price") var price: String? = null,
     @SerialName("numberOfShares") var numberOfShares: Float? = null,
-    @SerialName("totalSharesValue") var totalSharesValue: Float? = null
+    @SerialName("totalSharesValue") var totalSharesValue: Float? = null,
 )

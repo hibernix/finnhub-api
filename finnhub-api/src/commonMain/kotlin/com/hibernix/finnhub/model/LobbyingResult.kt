@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class LobbyingResult(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("data") var data: List<LobbyingData>? = null
+    @SerialName("data") var data: List<LobbyingData>? = null,
 )

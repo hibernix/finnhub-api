@@ -119,7 +119,7 @@ interface FinnhubApi {
     @GET("scan/technical-indicator")
     suspend fun aggregateIndicator(
         @Query("symbol") symbol: String,
-        @Query("resolution") resolution: String
+        @Query("resolution") resolution: String,
     ): AggregateIndicators
 
     /**
@@ -140,7 +140,7 @@ interface FinnhubApi {
     suspend fun bondPrice(
         @Query("isin") isin: String,
         @Query("from") from: Long,
-        @Query("to") to: Long
+        @Query("to") to: Long,
     ): Candles
 
     /**
@@ -153,9 +153,9 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: bond-profile")
     @GET("bond/profile")
     suspend fun bondProfile(
-        @Query("isin") isin: String?,
-        @Query("cusip") cusip: String?,
-        @Query("figi") figi: String?
+        @Query("isin") isin: String? = null,
+        @Query("cusip") cusip: String? = null,
+        @Query("figi") figi: String? = null,
     ): BondProfile
 
     /**
@@ -178,7 +178,7 @@ interface FinnhubApi {
         @Query("date") date: LocalDate,
         @Query("limit") limit: Long,
         @Query("skip") skip: Long,
-        @Query("exchange") exchange: String
+        @Query("exchange") exchange: String,
     ): BondTickData
 
     /**
@@ -192,7 +192,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: bond-yield-curve")
     @GET("bond/yield-curve")
     suspend fun bondYieldCurve(
-        @Query("code") code: String
+        @Query("code") code: String,
     ): BondYieldCurve
 
     /**
@@ -205,7 +205,7 @@ interface FinnhubApi {
     @GET("stock/metric")
     suspend fun companyBasicFinancials(
         @Query("symbol") symbol: String,
-        @Query("metric") metric: String
+        @Query("metric") metric: String,
     ): BasicFinancials
 
     /**
@@ -218,7 +218,7 @@ interface FinnhubApi {
     @GET("stock/earnings")
     suspend fun companyEarnings(
         @Query("symbol") symbol: String,
-        @Query("limit") limit: Long?
+        @Query("limit") limit: Long? = null,
     ): List<EarningResult>
 
     /**
@@ -237,7 +237,7 @@ interface FinnhubApi {
     @GET("stock/earnings-quality-score")
     suspend fun companyEarningsQualityScore(
         @Query("symbol") symbol: String,
-        @Query("freq") freq: String
+        @Query("freq") freq: String,
     ): CompanyEarningsQualityScore
 
     /**
@@ -251,7 +251,7 @@ interface FinnhubApi {
     @GET("stock/ebit-estimate")
     suspend fun companyEbitEstimates(
         @Query("symbol") symbol: String,
-        @Query("freq") freq: String?
+        @Query("freq") freq: String? = null,
     ): EbitEstimates
 
     /**
@@ -265,7 +265,7 @@ interface FinnhubApi {
     @GET("stock/ebitda-estimate")
     suspend fun companyEbitdaEstimates(
         @Query("symbol") symbol: String,
-        @Query("freq") freq: String?
+        @Query("freq") freq: String? = null,
     ): EbitdaEstimates
 
     /**
@@ -279,7 +279,7 @@ interface FinnhubApi {
     @GET("stock/eps-estimate")
     suspend fun companyEpsEstimates(
         @Query("symbol") symbol: String,
-        @Query("freq") freq: String?
+        @Query("freq") freq: String? = null,
     ): EarningsEstimates
 
     /**
@@ -295,7 +295,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: company-esg-score")
     @GET("stock/esg")
     suspend fun companyEsgScore(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): CompanyESG
 
     /**
@@ -306,7 +306,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: company-executive")
     @GET("stock/executive")
     suspend fun companyExecutive(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): CompanyExecutive
 
     /**
@@ -321,7 +321,7 @@ interface FinnhubApi {
     suspend fun companyNews(
         @Query("symbol") symbol: String,
         @Query("from") from: LocalDate,
-        @Query("to") to: LocalDate
+        @Query("to") to: LocalDate,
     ): List<CompanyNews>
 
     /**
@@ -335,7 +335,7 @@ interface FinnhubApi {
     @GET("stock/peers")
     suspend fun companyPeers(
         @Query("symbol") symbol: String,
-        @Query("grouping") grouping: String?
+        @Query("grouping") grouping: String? = null,
     ): List<String>
 
     /**
@@ -348,9 +348,9 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: company-profile")
     @GET("stock/profile")
     suspend fun companyProfile(
-        @Query("symbol") symbol: String?,
-        @Query("isin") isin: String?,
-        @Query("cusip") cusip: String?
+        @Query("symbol") symbol: String? = null,
+        @Query("isin") isin: String? = null,
+        @Query("cusip") cusip: String? = null,
     ): CompanyProfile
 
     /**
@@ -364,9 +364,9 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: company-profile2")
     @GET("stock/profile2")
     suspend fun companyProfile2(
-        @Query("symbol") symbol: String?,
-        @Query("isin") isin: String?,
-        @Query("cusip") cusip: String?
+        @Query("symbol") symbol: String? = null,
+        @Query("isin") isin: String? = null,
+        @Query("cusip") cusip: String? = null,
     ): CompanyProfile2
 
     /**
@@ -379,7 +379,7 @@ interface FinnhubApi {
     @GET("stock/revenue-estimate")
     suspend fun companyRevenueEstimates(
         @Query("symbol") symbol: String,
-        @Query("freq") freq: String?
+        @Query("freq") freq: String? = null,
     ): RevenueEstimates
 
     /**
@@ -415,7 +415,7 @@ interface FinnhubApi {
         @Query("symbol") symbol: String,
         @Query("resolution") resolution: String,
         @Query("from") from: Long,
-        @Query("to") to: Long
+        @Query("to") to: Long,
     ): Candles
 
     /**
@@ -434,7 +434,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: crypto-profile")
     @GET("crypto/profile")
     suspend fun cryptoProfile(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): CryptoProfile
 
     /**
@@ -445,7 +445,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: crypto-symbols")
     @GET("crypto/symbol")
     suspend fun cryptoSymbols(
-        @Query("exchange") exchange: String
+        @Query("exchange") exchange: String,
     ): List<CryptoSymbol>
 
     /**
@@ -461,10 +461,10 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: earnings-calendar")
     @GET("calendar/earnings")
     suspend fun earningsCalendar(
-        @Query("from") from: LocalDate?,
-        @Query("to") to: LocalDate?,
-        @Query("symbol") symbol: String?,
-        @Query("international") international: Boolean?
+        @Query("from") from: LocalDate? = null,
+        @Query("to") to: LocalDate? = null,
+        @Query("symbol") symbol: String? = null,
+        @Query("international") international: Boolean? = null,
     ): EarningsCalendar
 
     /**
@@ -476,8 +476,8 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: economic-calendar")
     @GET("calendar/economic")
     suspend fun economicCalendar(
-        @Query("from") from: LocalDate?,
-        @Query("to") to: LocalDate?
+        @Query("from") from: LocalDate? = null,
+        @Query("to") to: LocalDate? = null,
     ): EconomicCalendar
 
     /**
@@ -496,7 +496,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: economic-data")
     @GET("economic")
     suspend fun economicData(
-        @Query("code") code: String
+        @Query("code") code: String,
     ): EconomicData
 
     /**
@@ -507,7 +507,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: etfs-country-exposure")
     @GET("etf/country")
     suspend fun etfsCountryExposure(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): ETFsCountryExposure
 
     /**
@@ -522,10 +522,10 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: etfs-holdings")
     @GET("etf/holdings")
     suspend fun etfsHoldings(
-        @Query("symbol") symbol: String?,
-        @Query("isin") isin: String?,
-        @Query("skip") skip: Long?,
-        @Query("date") date: String?
+        @Query("symbol") symbol: String? = null,
+        @Query("isin") isin: String? = null,
+        @Query("skip") skip: Long? = null,
+        @Query("date") date: String? = null,
     ): ETFsHoldings
 
     /**
@@ -537,8 +537,8 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: etfs-profile")
     @GET("etf/profile")
     suspend fun etfsProfile(
-        @Query("symbol") symbol: String?,
-        @Query("isin") isin: String?
+        @Query("symbol") symbol: String? = null,
+        @Query("isin") isin: String? = null,
     ): ETFsProfile
 
     /**
@@ -549,7 +549,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: etfs-sector-exposure")
     @GET("etf/sector")
     suspend fun etfsSectorExposure(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): ETFsSectorExposure
 
     /**
@@ -579,12 +579,12 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: filings")
     @GET("stock/filings")
     suspend fun filings(
-        @Query("symbol") symbol: String?,
-        @Query("cik") cik: String?,
-        @Query("accessNumber") accessNumber: String?,
-        @Query("form") form: String?,
-        @Query("from") from: LocalDate?,
-        @Query("to") to: LocalDate?
+        @Query("symbol") symbol: String? = null,
+        @Query("cik") cik: String? = null,
+        @Query("accessNumber") accessNumber: String? = null,
+        @Query("form") form: String? = null,
+        @Query("from") from: LocalDate? = null,
+        @Query("to") to: LocalDate? = null,
     ): List<Filing>
 
     /**
@@ -598,7 +598,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: filings-sentiment")
     @GET("stock/filings-sentiment")
     suspend fun filingsSentiment(
-        @Query("accessNumber") accessNumber: String
+        @Query("accessNumber") accessNumber: String,
     ): SECSentimentAnalysis
 
     /**
@@ -619,7 +619,7 @@ interface FinnhubApi {
     suspend fun financials(
         @Query("symbol") symbol: String,
         @Query("statement") statement: String,
-        @Query("freq") freq: String
+        @Query("freq") freq: String,
     ): FinancialStatements
 
     /**
@@ -637,12 +637,12 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: financials-reported")
     @GET("stock/financials-reported")
     suspend fun financialsReported(
-        @Query("symbol") symbol: String?,
-        @Query("cik") cik: String?,
-        @Query("accessNumber") accessNumber: String?,
-        @Query("freq") freq: String?,
-        @Query("from") from: LocalDate?,
-        @Query("to") to: LocalDate?
+        @Query("symbol") symbol: String? = null,
+        @Query("cik") cik: String? = null,
+        @Query("accessNumber") accessNumber: String? = null,
+        @Query("freq") freq: String? = null,
+        @Query("from") from: LocalDate? = null,
+        @Query("to") to: LocalDate? = null,
     ): FinancialsAsReported
 
     /**
@@ -660,7 +660,7 @@ interface FinnhubApi {
         @Query("symbol") symbol: String,
         @Query("resolution") resolution: String,
         @Query("from") from: Long,
-        @Query("to") to: Long
+        @Query("to") to: Long,
     ): Candles
 
     /**
@@ -680,8 +680,8 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: forex-rates")
     @GET("forex/rates")
     suspend fun forexRates(
-        @Query("base") base: String?,
-        @Query("date") date: String?
+        @Query("base") base: String? = null,
+        @Query("date") date: String? = null,
     ): Forexrates
 
     /**
@@ -692,7 +692,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: forex-symbols")
     @GET("forex/symbol")
     suspend fun forexSymbols(
-        @Query("exchange") exchange: String
+        @Query("exchange") exchange: String,
     ): List<ForexSymbol>
 
     /**
@@ -708,7 +708,7 @@ interface FinnhubApi {
     @GET("stock/fund-ownership")
     suspend fun fundOwnership(
         @Query("symbol") symbol: String,
-        @Query("limit") limit: Long?
+        @Query("limit") limit: Long? = null,
     ): FundOwnership
 
     /**
@@ -724,7 +724,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: global-filings-search")
     @POST("global-filings/search")
     suspend fun globalFilingsSearch(
-        @Body search: SearchBody
+        @Body search: SearchBody,
     ): SearchResponse
 
     /**
@@ -740,7 +740,7 @@ interface FinnhubApi {
     @GET("global-filings/filter")
     suspend fun globalFilingsSearchFilter(
         @Query("field") field: String,
-        @Query("source") source: String?
+        @Query("source") source: String? = null,
     ): SearchFilter
 
     /**
@@ -752,7 +752,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: indices-constituents")
     @GET("index/constituents")
     suspend fun indicesConstituents(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): IndicesConstituents
 
     /**
@@ -764,7 +764,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: indices-historical-constituents")
     @GET("index/historical-constituents")
     suspend fun indicesHistoricalConstituents(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): IndicesHistoricalConstituents
 
     /**
@@ -783,7 +783,7 @@ interface FinnhubApi {
     suspend fun insiderSentiment(
         @Query("symbol") symbol: String,
         @Query("from") from: LocalDate,
-        @Query("to") to: LocalDate
+        @Query("to") to: LocalDate,
     ): InsiderSentiments
 
     /**
@@ -798,8 +798,8 @@ interface FinnhubApi {
     @GET("stock/insider-transactions")
     suspend fun insiderTransactions(
         @Query("symbol") symbol: String,
-        @Query("from") from: LocalDate?,
-        @Query("to") to: LocalDate?
+        @Query("from") from: LocalDate? = null,
+        @Query("to") to: LocalDate? = null,
     ): InsiderTransactions
 
     /**
@@ -817,7 +817,7 @@ interface FinnhubApi {
         @Query("symbol") symbol: String,
         @Query("cusip") cusip: String,
         @Query("from") from: String,
-        @Query("to") to: String
+        @Query("to") to: String,
     ): InstitutionalOwnership
 
     /**
@@ -833,7 +833,7 @@ interface FinnhubApi {
     suspend fun institutionalPortfolio(
         @Query("cik") cik: String,
         @Query("from") from: String,
-        @Query("to") to: String
+        @Query("to") to: String,
     ): InstitutionalPortfolio
 
     /**
@@ -844,7 +844,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: institutional-profile")
     @GET("institutional/profile")
     suspend fun institutionalProfile(
-        @Query("cik") cik: String?
+        @Query("cik") cik: String? = null,
     ): InstitutionalProfile
 
     /**
@@ -859,8 +859,8 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: international-filings")
     @GET("stock/international-filings")
     suspend fun internationalFilings(
-        @Query("symbol") symbol: String?,
-        @Query("country") country: String?
+        @Query("symbol") symbol: String? = null,
+        @Query("country") country: String? = null,
     ): List<InternationalFiling>
 
     /**
@@ -883,7 +883,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: investment-themes")
     @GET("stock/investment-theme")
     suspend fun investmentThemes(
-        @Query("theme") theme: String
+        @Query("theme") theme: String,
     ): InvestmentThemes
 
     /**
@@ -896,7 +896,7 @@ interface FinnhubApi {
     @GET("calendar/ipo")
     suspend fun ipoCalendar(
         @Query("from") from: LocalDate,
-        @Query("to") to: LocalDate
+        @Query("to") to: LocalDate,
     ): IPOCalendar
 
     /**
@@ -909,7 +909,7 @@ interface FinnhubApi {
     @GET("ca/isin-change")
     suspend fun isinChange(
         @Query("from") from: String,
-        @Query("to") to: String
+        @Query("to") to: String,
     ): IsinChange
 
     /**
@@ -922,7 +922,7 @@ interface FinnhubApi {
     @GET("news")
     suspend fun marketNews(
         @Query("category") category: String,
-        @Query("minId") minId: Long?
+        @Query("minId") minId: Long? = null,
     ): List<MarketNews>
 
     /**
@@ -933,7 +933,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: mutual-fund-country-exposure")
     @GET("mutual-fund/country")
     suspend fun mutualFundCountryExposure(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): MutualFundCountryExposure
 
     /**
@@ -944,7 +944,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: mutual-fund-eet")
     @GET("mutual-fund/eet")
     suspend fun mutualFundEet(
-        @Query("isin") isin: String
+        @Query("isin") isin: String,
     ): MutualFundEet
 
     /**
@@ -955,7 +955,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: mutual-fund-eet-pai")
     @GET("mutual-fund/eet-pai")
     suspend fun mutualFundEetPai(
-        @Query("isin") isin: String
+        @Query("isin") isin: String,
     ): MutualFundEetPai
 
     /**
@@ -970,9 +970,9 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: mutual-fund-holdings")
     @GET("mutual-fund/holdings")
     suspend fun mutualFundHoldings(
-        @Query("symbol") symbol: String?,
-        @Query("isin") isin: String?,
-        @Query("skip") skip: Long?
+        @Query("symbol") symbol: String? = null,
+        @Query("isin") isin: String? = null,
+        @Query("skip") skip: Long? = null,
     ): MutualFundHoldings
 
     /**
@@ -985,8 +985,8 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: mutual-fund-profile")
     @GET("mutual-fund/profile")
     suspend fun mutualFundProfile(
-        @Query("symbol") symbol: String?,
-        @Query("isin") isin: String?
+        @Query("symbol") symbol: String? = null,
+        @Query("isin") isin: String? = null,
     ): MutualFundProfile
 
     /**
@@ -997,7 +997,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: mutual-fund-sector-exposure")
     @GET("mutual-fund/sector")
     suspend fun mutualFundSectorExposure(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): MutualFundSectorExposure
 
     /**
@@ -1008,7 +1008,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: news-sentiment")
     @GET("news-sentiment")
     suspend fun newsSentiment(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): NewsSentiment
 
     /**
@@ -1024,7 +1024,7 @@ interface FinnhubApi {
     @GET("stock/ownership")
     suspend fun ownership(
         @Query("symbol") symbol: String,
-        @Query("limit") limit: Long?
+        @Query("limit") limit: Long? = null,
     ): Ownership
 
     /**
@@ -1039,7 +1039,7 @@ interface FinnhubApi {
     @GET("scan/pattern")
     suspend fun patternRecognition(
         @Query("symbol") symbol: String,
-        @Query("resolution") resolution: String
+        @Query("resolution") resolution: String,
     ): PatternRecognition
 
     /**
@@ -1056,8 +1056,8 @@ interface FinnhubApi {
     @GET("press-releases")
     suspend fun pressReleases(
         @Query("symbol") symbol: String,
-        @Query("from") from: LocalDate?,
-        @Query("to") to: LocalDate?
+        @Query("from") from: LocalDate? = null,
+        @Query("to") to: LocalDate? = null,
     ): PressRelease
 
     /**
@@ -1068,7 +1068,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: price-metrics")
     @GET("stock/price-metric")
     suspend fun priceMetrics(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): PriceMetrics
 
     /**
@@ -1079,7 +1079,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: price-target")
     @GET("stock/price-target")
     suspend fun priceTarget(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): PriceTarget
 
     /**
@@ -1092,7 +1092,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: quote")
     @GET("quote")
     suspend fun quote(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): Quote
 
     /**
@@ -1103,7 +1103,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: recommendation-trends")
     @GET("stock/recommendation")
     suspend fun recommendationTrends(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): List<RecommendationTrend>
 
     /**
@@ -1116,8 +1116,8 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: revenue-breakdown")
     @GET("stock/revenue-breakdown")
     suspend fun revenueBreakdown(
-        @Query("symbol") symbol: String?,
-        @Query("cik") cik: String?
+        @Query("symbol") symbol: String? = null,
+        @Query("cik") cik: String? = null,
     ): RevenueBreakdown
 
     /**
@@ -1129,7 +1129,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: search-in-filing")
     @POST("global-filings/search-in-filing")
     suspend fun searchInFiling(
-        @Body search: InFilingSearchBody
+        @Body search: InFilingSearchBody,
     ): InFilingResponse
 
     /**
@@ -1142,7 +1142,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: sector-metric")
     @GET("sector/metrics")
     suspend fun sectorMetric(
-        @Query("region") region: String
+        @Query("region") region: String,
     ): SectorMetric
 
     /**
@@ -1158,9 +1158,9 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: similarity-index")
     @GET("stock/similarity-index")
     suspend fun similarityIndex(
-        @Query("symbol") symbol: String?,
-        @Query("cik") cik: String?,
-        @Query("freq") freq: String?
+        @Query("symbol") symbol: String? = null,
+        @Query("cik") cik: String? = null,
+        @Query("freq") freq: String? = null,
     ): SimilarityIndex
 
     /**
@@ -1174,8 +1174,8 @@ interface FinnhubApi {
     @GET("stock/social-sentiment")
     suspend fun socialSentiment(
         @Query("symbol") symbol: String,
-        @Query("from") from: LocalDate?,
-        @Query("to") to: LocalDate?
+        @Query("from") from: LocalDate? = null,
+        @Query("to") to: LocalDate? = null,
     ): SocialSentiment
 
     /**
@@ -1187,7 +1187,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: stock-basic-dividends")
     @GET("stock/dividend2")
     suspend fun stockBasicDividends(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): Dividends2
 
     /**
@@ -1198,7 +1198,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: stock-bidask")
     @GET("stock/bidask")
     suspend fun stockBidask(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): LastBidMinusAsk
 
     /**
@@ -1218,7 +1218,7 @@ interface FinnhubApi {
         @Query("symbol") symbol: String,
         @Query("resolution") resolution: String,
         @Query("from") from: Long,
-        @Query("to") to: Long
+        @Query("to") to: Long,
     ): Candles
 
     /**
@@ -1234,7 +1234,7 @@ interface FinnhubApi {
     suspend fun stockDividends(
         @Query("symbol") symbol: String,
         @Query("from") from: LocalDate,
-        @Query("to") to: LocalDate
+        @Query("to") to: LocalDate,
     ): List<Dividends>
 
     /**
@@ -1250,7 +1250,7 @@ interface FinnhubApi {
     suspend fun stockLobbying(
         @Query("symbol") symbol: String,
         @Query("from") from: LocalDate,
-        @Query("to") to: LocalDate
+        @Query("to") to: LocalDate,
     ): LobbyingResult
 
     /**
@@ -1270,7 +1270,7 @@ interface FinnhubApi {
         @Query("symbol") symbol: String,
         @Query("date") date: LocalDate,
         @Query("limit") limit: Long,
-        @Query("skip") skip: Long
+        @Query("skip") skip: Long,
     ): HistoricalNBBO
 
     /**
@@ -1286,7 +1286,7 @@ interface FinnhubApi {
     suspend fun stockSplits(
         @Query("symbol") symbol: String,
         @Query("from") from: LocalDate,
-        @Query("to") to: LocalDate
+        @Query("to") to: LocalDate,
     ): List<Split>
 
     /**
@@ -1306,9 +1306,9 @@ interface FinnhubApi {
     @GET("stock/symbol")
     suspend fun stockSymbols(
         @Query("exchange") exchange: String,
-        @Query("mic") mic: String?,
-        @Query("securityType") securityType: String?,
-        @Query("currency") currency: String?
+        @Query("mic") mic: String? = null,
+        @Query("securityType") securityType: String? = null,
+        @Query("currency") currency: String? = null,
     ): List<StockSymbol>
 
     /**
@@ -1329,7 +1329,7 @@ interface FinnhubApi {
         @Query("symbol") symbol: String,
         @Query("date") date: LocalDate,
         @Query("limit") limit: Long,
-        @Query("skip") skip: Long
+        @Query("skip") skip: Long,
     ): TickData
 
     /**
@@ -1346,7 +1346,7 @@ interface FinnhubApi {
     suspend fun stockUsaSpending(
         @Query("symbol") symbol: String,
         @Query("from") from: LocalDate,
-        @Query("to") to: LocalDate
+        @Query("to") to: LocalDate,
     ): UsaSpendingResult
 
     /**
@@ -1361,7 +1361,7 @@ interface FinnhubApi {
     suspend fun stockUsptoPatent(
         @Query("symbol") symbol: String,
         @Query("from") from: LocalDate,
-        @Query("to") to: LocalDate
+        @Query("to") to: LocalDate,
     ): UsptoPatentResult
 
     /**
@@ -1376,7 +1376,7 @@ interface FinnhubApi {
     suspend fun stockVisaApplication(
         @Query("symbol") symbol: String,
         @Query("from") from: LocalDate,
-        @Query("to") to: LocalDate
+        @Query("to") to: LocalDate,
     ): VisaApplicationResult
 
     /**
@@ -1389,7 +1389,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: supply-chain-relationships")
     @GET("stock/supply-chain")
     suspend fun supplyChainRelationships(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): SupplyChainRelationships
 
     /**
@@ -1403,7 +1403,7 @@ interface FinnhubApi {
     @GET("scan/support-resistance")
     suspend fun supportResistance(
         @Query("symbol") symbol: String,
-        @Query("resolution") resolution: String
+        @Query("resolution") resolution: String,
     ): SupportResistance
 
     /**
@@ -1416,7 +1416,7 @@ interface FinnhubApi {
     @GET("ca/symbol-change")
     suspend fun symbolChange(
         @Query("from") from: String,
-        @Query("to") to: String
+        @Query("to") to: String,
     ): SymbolChange
 
     /**
@@ -1428,7 +1428,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: symbol-search")
     @GET("search")
     suspend fun symbolSearch(
-        @Query("q") q: String
+        @Query("q") q: String,
     ): SymbolLookup
 
     /**
@@ -1455,7 +1455,7 @@ interface FinnhubApi {
         @Query("from") from: Long,
         @Query("to") to: Long,
         @Query("indicator") indicator: String,
-        @Query("indicator_fields") indicatorFields: Map<String, Any>
+        @Query("indicator_fields") indicatorFields: Map<String, Any>,
     ): TechnicalIndicator
 
     /**
@@ -1467,7 +1467,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: transcripts")
     @GET("stock/transcripts")
     suspend fun transcripts(
-        @Query("id") id: String
+        @Query("id") id: String,
     ): EarningsCallTranscripts
 
     /**
@@ -1479,7 +1479,7 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: transcripts-list")
     @GET("stock/transcripts/list")
     suspend fun transcriptsList(
-        @Query("symbol") symbol: String
+        @Query("symbol") symbol: String,
     ): EarningsCallTranscriptsList
 
     /**
@@ -1493,9 +1493,9 @@ interface FinnhubApi {
     @Headers("X-Operation-ID: upgrade-downgrade")
     @GET("stock/upgrade-downgrade")
     suspend fun upgradeDowngrade(
-        @Query("symbol") symbol: String?,
-        @Query("from") from: LocalDate?,
-        @Query("to") to: LocalDate?
+        @Query("symbol") symbol: String? = null,
+        @Query("from") from: LocalDate? = null,
+        @Query("to") to: LocalDate? = null,
     ): List<UpgradeDowngrade>
 
     companion object {

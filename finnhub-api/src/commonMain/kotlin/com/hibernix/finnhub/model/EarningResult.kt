@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.LocalDate
 
 /**
  * @property actual Actual earning result.
@@ -19,5 +19,5 @@ data class EarningResult(
     @SerialName("surprise") var surprise: Float? = null,
     @SerialName("surprisePercent") var surprisePercent: Float? = null,
     @SerialName("period") var period: LocalDate? = null,
-    @SerialName("symbol") var symbol: String? = null
+    @SerialName("symbol") var symbol: String? = null,
 )

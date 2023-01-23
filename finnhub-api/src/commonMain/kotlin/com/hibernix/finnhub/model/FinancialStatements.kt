@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class FinancialStatements(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("financials") var financials: List<FinancialMap>? = null
+    @SerialName("financials") var financials: List<FinancialMap>? = null,
 )

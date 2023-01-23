@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class InstitutionalOwnership(
     @SerialName("symbol") var symbol: String? = null,
     @SerialName("cusip") var cusip: String? = null,
-    @SerialName("data") var data: List<InstitutionalOwnershipGroup>? = null
+    @SerialName("data") var data: List<InstitutionalOwnershipGroup>? = null,
 )

@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.LocalDate
 
 /**
  * @property symbol Symbol.
@@ -25,5 +25,5 @@ data class Transactions(
     @SerialName("filingDate") var filingDate: LocalDate? = null,
     @SerialName("transactionDate") var transactionDate: LocalDate? = null,
     @SerialName("transactionPrice") var transactionPrice: Float? = null,
-    @SerialName("transactionCode") var transactionCode: String? = null
+    @SerialName("transactionCode") var transactionCode: String? = null,
 )

@@ -19,5 +19,5 @@ data class UpgradeDowngrade(
     @SerialName("fromGrade") var fromGrade: String? = null,
     @SerialName("toGrade") var toGrade: String? = null,
     @SerialName("company") var company: String? = null,
-    @SerialName("action") var action: String? = null
+    @SerialName("action") var action: String? = null,
 )

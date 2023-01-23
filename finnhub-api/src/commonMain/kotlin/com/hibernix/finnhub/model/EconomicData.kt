@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class EconomicData(
     @SerialName("data") var data: List<EconomicDataInfo>? = null,
-    @SerialName("code") var code: String? = null
+    @SerialName("code") var code: String? = null,
 )

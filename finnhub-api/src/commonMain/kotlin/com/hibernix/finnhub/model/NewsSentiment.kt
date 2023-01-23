@@ -18,5 +18,5 @@ data class NewsSentiment(
     @SerialName("sectorAverageBullishPercent") var sectorAverageBullishPercent: Float? = null,
     @SerialName("sectorAverageNewsScore") var sectorAverageNewsScore: Float? = null,
     @SerialName("sentiment") var sentiment: Sentiment? = null,
-    @SerialName("symbol") var symbol: String? = null
+    @SerialName("symbol") var symbol: String? = null,
 )

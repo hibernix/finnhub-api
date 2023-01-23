@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class IndicesHistoricalConstituents(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("historicalConstituents") var historicalConstituents: List<IndexHistoricalConstituent>? = null
+    @SerialName("historicalConstituents") var historicalConstituents: List<IndexHistoricalConstituent>? = null,
 )

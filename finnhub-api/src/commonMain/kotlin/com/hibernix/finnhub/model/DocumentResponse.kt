@@ -18,5 +18,5 @@ data class DocumentResponse(
     @SerialName("hits") var hits: String? = null,
     @SerialName("url") var url: String? = null,
     @SerialName("format") var format: String? = null,
-    @SerialName("excerpts") var excerpts: List<ExcerptResponse>? = null
+    @SerialName("excerpts") var excerpts: List<ExcerptResponse>? = null,
 )

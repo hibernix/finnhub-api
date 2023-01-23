@@ -45,10 +45,11 @@ internal class FinnhubWebSocketImpl(private val apiKey: String) : FinnhubWebSock
     override var onDisconnected: (Boolean) -> Unit = { println("Finnhub WebSocket disconnected, byUser = $it") }
     override var onError: (Throwable) -> Unit = { it.printStackTrace() }
 
-    override fun connect() {
+    override fun connect(connected: (() -> Unit)?) {
         scope.launch {
             client.webSocket("$FINNHUB_WEBSOCKET_BASE_URL$apiKey") {
                 session = this
+                connected?.invoke()
                 onConnected()
                 while (true) {
                     try {

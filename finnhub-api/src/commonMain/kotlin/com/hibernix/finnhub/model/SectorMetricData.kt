@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class SectorMetricData(
     @SerialName("sector") var sector: String? = null,
-    @SerialName("metrics") var metrics: Map<String, Int?>? = null
+    @SerialName("metrics") var metrics: Map<String, Int?>? = null,
 )

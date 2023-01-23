@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class IsinChangeInfo(
     @SerialName("atDate") var atDate: String? = null,
     @SerialName("oldIsin") var oldIsin: String? = null,
-    @SerialName("newIsin") var newIsin: String? = null
+    @SerialName("newIsin") var newIsin: String? = null,
 )

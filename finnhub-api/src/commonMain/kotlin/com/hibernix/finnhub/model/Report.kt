@@ -28,5 +28,5 @@ data class Report(
     @SerialName("endDate") var endDate: String? = null,
     @SerialName("filedDate") var filedDate: String? = null,
     @SerialName("acceptedDate") var acceptedDate: String? = null,
-    @SerialName("report") var report: ReportDataMap? = null
+    @SerialName("report") var report: ReportDataMap? = null,
 )

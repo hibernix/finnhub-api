@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class EconomicDataInfo(
     @SerialName("date") var date: String? = null,
-    @SerialName("value") var value: Float? = null
+    @SerialName("value") var value: Float? = null,
 )

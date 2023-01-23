@@ -36,5 +36,5 @@ data class LobbyingData(
     @SerialName("clientId") var clientId: String? = null,
     @SerialName("registrantId") var registrantId: String? = null,
     @SerialName("senateId") var senateId: String? = null,
-    @SerialName("houseregistrantId") var houseregistrantId: String? = null
+    @SerialName("houseregistrantId") var houseregistrantId: String? = null,
 )

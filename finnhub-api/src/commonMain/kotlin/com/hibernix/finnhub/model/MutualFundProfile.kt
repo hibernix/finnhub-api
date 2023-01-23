@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class MutualFundProfile(
     @SerialName("symbol") var symbol: String? = null,
-    @SerialName("profile") var profile: MutualFundProfileData? = null
+    @SerialName("profile") var profile: MutualFundProfileData? = null,
 )

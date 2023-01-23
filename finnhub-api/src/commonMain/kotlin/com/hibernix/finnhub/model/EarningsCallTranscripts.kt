@@ -24,5 +24,5 @@ data class EarningsCallTranscripts(
     @SerialName("title") var title: String? = null,
     @SerialName("time") var time: String? = null,
     @SerialName("year") var year: Long? = null,
-    @SerialName("quarter") var quarter: Long? = null
+    @SerialName("quarter") var quarter: Long? = null,
 )

@@ -18,5 +18,5 @@ data class InstitutionalProfileInfo(
     @SerialName("manager") var manager: String? = null,
     @SerialName("philosophy") var philosophy: String? = null,
     @SerialName("profile") var profile: String? = null,
-    @SerialName("profileImg") var profileImg: String? = null
+    @SerialName("profileImg") var profileImg: String? = null,
 )

@@ -28,5 +28,5 @@ data class InstitutionalPortfolioInfo(
     @SerialName("share") var share: Float? = null,
     @SerialName("sharedVoting") var sharedVoting: Float? = null,
     @SerialName("soleVoting") var soleVoting: Float? = null,
-    @SerialName("value") var value: Float? = null
+    @SerialName("value") var value: Float? = null,
 )

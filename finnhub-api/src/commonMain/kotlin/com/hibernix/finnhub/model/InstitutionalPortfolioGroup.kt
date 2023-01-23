@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class InstitutionalPortfolioGroup(
     @SerialName("reportDate") var reportDate: String? = null,
     @SerialName("filingDate") var filingDate: String? = null,
-    @SerialName("portfolio") var portfolio: List<InstitutionalPortfolioInfo>? = null
+    @SerialName("portfolio") var portfolio: List<InstitutionalPortfolioInfo>? = null,
 )

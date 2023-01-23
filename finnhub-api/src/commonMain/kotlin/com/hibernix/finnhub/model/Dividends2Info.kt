@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.LocalDate
 
 /**
  * @property exDate Ex-Dividend date.
@@ -11,5 +11,5 @@ import kotlinx.datetime.LocalDate
 @Serializable
 data class Dividends2Info(
     @SerialName("exDate") var exDate: LocalDate? = null,
-    @SerialName("amount") var amount: Float? = null
+    @SerialName("amount") var amount: Float? = null,
 )

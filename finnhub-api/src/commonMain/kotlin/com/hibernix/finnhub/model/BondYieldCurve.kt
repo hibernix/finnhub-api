@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class BondYieldCurve(
     @SerialName("data") var data: List<BondYieldCurveInfo>? = null,
-    @SerialName("code") var code: String? = null
+    @SerialName("code") var code: String? = null,
 )

@@ -14,5 +14,5 @@ data class SearchResponse(
     @SerialName("count") var count: Int? = null,
     @SerialName("took") var took: Int? = null,
     @SerialName("page") var page: Int? = null,
-    @SerialName("filings") var filings: List<FilingResponse>? = null
+    @SerialName("filings") var filings: List<FilingResponse>? = null,
 )

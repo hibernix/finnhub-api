@@ -28,5 +28,5 @@ data class CryptoProfile(
     @SerialName("circulatingSupply") var circulatingSupply: Float? = null,
     @SerialName("logo") var logo: String? = null,
     @SerialName("launchDate") var launchDate: String? = null,
-    @SerialName("proofType") var proofType: String? = null
+    @SerialName("proofType") var proofType: String? = null,
 )

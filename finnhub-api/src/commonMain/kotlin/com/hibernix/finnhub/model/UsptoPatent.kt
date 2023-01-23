@@ -24,5 +24,5 @@ data class UsptoPatent(
     @SerialName("patentNumber") var patentNumber: String? = null,
     @SerialName("publicationDate") var publicationDate: String? = null,
     @SerialName("patentType") var patentType: String? = null,
-    @SerialName("url") var url: String? = null
+    @SerialName("url") var url: String? = null,
 )

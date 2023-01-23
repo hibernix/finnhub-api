@@ -18,5 +18,5 @@ data class PriceTarget(
     @SerialName("targetLow") var targetLow: Float? = null,
     @SerialName("targetMean") var targetMean: Float? = null,
     @SerialName("targetMedian") var targetMedian: Float? = null,
-    @SerialName("lastUpdated") var lastUpdated: String? = null
+    @SerialName("lastUpdated") var lastUpdated: String? = null,
 )

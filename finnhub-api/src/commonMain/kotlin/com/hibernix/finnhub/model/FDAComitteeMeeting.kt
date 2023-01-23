@@ -14,5 +14,5 @@ data class FDAComitteeMeeting(
     @SerialName("fromDate") var fromDate: String? = null,
     @SerialName("toDate") var toDate: String? = null,
     @SerialName("eventDescription") var eventDescription: String? = null,
-    @SerialName("url") var url: String? = null
+    @SerialName("url") var url: String? = null,
 )

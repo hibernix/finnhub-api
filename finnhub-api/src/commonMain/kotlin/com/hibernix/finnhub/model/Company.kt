@@ -20,5 +20,5 @@ data class Company(
     @SerialName("since") var since: String? = null,
     @SerialName("sex") var sex: String? = null,
     @SerialName("compensation") var compensation: Long? = null,
-    @SerialName("currency") var currency: String? = null
+    @SerialName("currency") var currency: String? = null,
 )

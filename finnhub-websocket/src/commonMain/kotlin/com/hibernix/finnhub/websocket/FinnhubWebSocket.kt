@@ -41,8 +41,10 @@ interface FinnhubWebSocket {
 
     /**
      * Connect to the websocket server.
+     * @param connected convenience block to be executed after successful connection. You can use this instead of
+     * [onConnected] callback.
      */
-    fun connect()
+    fun connect(connected: (() -> Unit)? = null)
 
     /**
      * Disconnect from websocket server.
@@ -77,7 +79,7 @@ interface FinnhubWebSocket {
 
         /**
          * Used for creating of an instance of [FinnhubWebSocket].
-         * @param apiKey Your Finnhub API key.
+         * @param apiKey Your finnhub API key.
          */
         fun create(apiKey: String): FinnhubWebSocket = FinnhubWebSocketImpl(apiKey)
     }

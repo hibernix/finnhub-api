@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.LocalDate
 
 /**
  * @property symbol Symbol
@@ -13,5 +13,5 @@ import kotlinx.datetime.LocalDate
 data class IndexHistoricalConstituent(
     @SerialName("symbol") var symbol: String? = null,
     @SerialName("action") var action: String? = null,
-    @SerialName("date") var date: LocalDate? = null
+    @SerialName("date") var date: LocalDate? = null,
 )

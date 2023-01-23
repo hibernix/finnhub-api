@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class SectorMetric(
     @SerialName("region") var region: String? = null,
-    @SerialName("data") var data: List<SectorMetricData>? = null
+    @SerialName("data") var data: List<SectorMetricData>? = null,
 )

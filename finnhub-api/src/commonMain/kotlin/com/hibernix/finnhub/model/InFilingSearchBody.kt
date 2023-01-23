@@ -10,5 +10,5 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class InFilingSearchBody(
     @SerialName("query") var query: String,
-    @SerialName("filingId") var filingId: String
+    @SerialName("filingId") var filingId: String,
 )

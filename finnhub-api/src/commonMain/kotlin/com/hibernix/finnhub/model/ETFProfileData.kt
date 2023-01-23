@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.LocalDate
 
 /**
  * @property name Name
@@ -50,5 +50,5 @@ data class ETFProfileData(
     @SerialName("description") var description: String? = null,
     @SerialName("isInverse") var isInverse: Boolean? = null,
     @SerialName("isLeveraged") var isLeveraged: Boolean? = null,
-    @SerialName("leverageFactor") var leverageFactor: Float? = null
+    @SerialName("leverageFactor") var leverageFactor: Float? = null,
 )

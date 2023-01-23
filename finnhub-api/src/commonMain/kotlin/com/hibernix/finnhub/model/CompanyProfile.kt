@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.LocalDate
 
 /**
  * @property address Address of company's headquarters.
@@ -67,5 +67,5 @@ data class CompanyProfile(
     @SerialName("shareOutstanding") var shareOutstanding: Float? = null,
     @SerialName("employeeTotal") var employeeTotal: Float? = null,
     @SerialName("logo") var logo: String? = null,
-    @SerialName("finnhubIndustry") var finnhubIndustry: String? = null
+    @SerialName("finnhubIndustry") var finnhubIndustry: String? = null,
 )

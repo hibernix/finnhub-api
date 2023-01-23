@@ -8,5 +8,5 @@ import kotlinx.serialization.Serializable
  */
 @Serializable
 data class EarningsCalendar(
-    @SerialName("earningsCalendar") var earningsCalendar: List<EarningRelease>? = null
+    @SerialName("earningsCalendar") var earningsCalendar: List<EarningRelease>? = null,
 )

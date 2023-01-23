@@ -34,5 +34,5 @@ data class BondTickData(
     @SerialName("cp") var cp: List<String>? = null,
     @SerialName("rp") var rp: List<String>? = null,
     @SerialName("ats") var ats: List<String>? = null,
-    @SerialName("c") var c: List<List<String>>? = null
+    @SerialName("c") var c: List<List<String>>? = null,
 )

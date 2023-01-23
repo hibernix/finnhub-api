@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class CompanyNewsStatistics(
     @SerialName("articlesInLastWeek") var articlesInLastWeek: Long? = null,
     @SerialName("buzz") var buzz: Float? = null,
-    @SerialName("weeklyAverage") var weeklyAverage: Float? = null
+    @SerialName("weeklyAverage") var weeklyAverage: Float? = null,
 )

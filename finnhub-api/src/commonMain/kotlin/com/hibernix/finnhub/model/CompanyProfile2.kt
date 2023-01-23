@@ -1,8 +1,8 @@
 package com.hibernix.finnhub.model
 
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.LocalDate
 
 /**
  * @property country Country of company's headquarters.
@@ -31,5 +31,5 @@ data class CompanyProfile2(
     @SerialName("logo") var logo: String? = null,
     @SerialName("phone") var phone: String? = null,
     @SerialName("weburl") var weburl: String? = null,
-    @SerialName("finnhubIndustry") var finnhubIndustry: String? = null
+    @SerialName("finnhubIndustry") var finnhubIndustry: String? = null,
 )

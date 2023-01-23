@@ -12,5 +12,5 @@ import kotlinx.serialization.Serializable
 data class TranscriptContent(
     @SerialName("name") var name: String? = null,
     @SerialName("speech") var speech: List<String>? = null,
-    @SerialName("session") var session: String? = null
+    @SerialName("session") var session: String? = null,
 )
