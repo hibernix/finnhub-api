@@ -52,5 +52,5 @@ android {
         minSdk = 19
         targetSdk = 33
     }
-    namespace = "com.hibernix.finnhub.api"
+    namespace = "com.hibernix.finnhub.websocket"
 }
