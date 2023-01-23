@@ -1,52 +1,80 @@
 plugins {
     kotlin("multiplatform")
-    kotlin("plugin.serialization") version "1.8.0"
-    id("com.google.devtools.ksp") version "1.8.0-1.0.8"
+    kotlin("plugin.serialization")
+    id("com.google.devtools.ksp")
+    id("de.jensklingenberg.ktorfit")
     id("org.jetbrains.dokka")
-    id("com.vanniktech.maven.publish")
+    id("io.gitlab.arturbosch.detekt")
+    id("com.android.library")
+    `maven-publish`
 }
 
-group = property("project.group")!!
-version = property("project.version")!!
+val ktorVersion = extra["versions.ktor"]
+val ktorfitVersion = extra["versions.ktorfit"]
+val coroutinesVersion = extra["versions.coroutines"]
+val serializationVersion = extra["versions.serialization"]
+val datetimeVersion = extra["versions.datetime"]
+
+group = requireNotNull(extra["project.group"])
+version = requireNotNull(extra["project.version"])
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
 }
 
-mavenPublishing {
-    //publishToMavenCentral()
-    // publishToMavenCentral(SonatypeHost.S01) for publishing through s01.oss.sonatype.org
-    /*
-        if(enableSigning.toBoolean()){
-            signAllPublications()
-        }
-    */
+val javadocJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("javadoc")
+}
+
+detekt {
+    config = files("../detekt-config.yml")
+    buildUponDefaultConfig = true
 }
 
 kotlin {
-    /*
-        android {
-            publishLibraryVariants("release", "debug")
-        }
-    */
-    jvm {
+    jvm()
+    android {
+        publishLibraryVariants("release", "debug")
+    }
+    js {
+        browser()
+        nodejs()
     }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
-                implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
-                implementation("de.jensklingenberg.ktorfit:ktorfit-lib:1.0.0-beta17")
-                implementation("io.ktor:ktor-client-content-negotiation:2.2.2")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:2.2.2")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:$serializationVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-datetime:$datetimeVersion")
+                implementation("de.jensklingenberg.ktorfit:ktorfit-lib:$ktorfitVersion")
+                implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
+                implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
             }
         }
+        val commonTest by getting {
+            dependencies {
+                implementation(kotlin("test"))
+            }
+        }
+        val jvmMain by getting
+        val jvmTest by getting
+        val androidMain by getting
     }
 }
 
+android {
+    compileSdk = 33
+    defaultConfig {
+        minSdk = 21
+        targetSdk = 33
+    }
+}
+
+val kspRetrofit = "de.jensklingenberg.ktorfit:ktorfit-ksp:$ktorfitVersion"
 dependencies {
-    add("kspCommonMainMetadata", "de.jensklingenberg.ktorfit:ktorfit-ksp:1.0.0-beta17")
-    add("kspJvm", "de.jensklingenberg.ktorfit:ktorfit-ksp:1.0.0-beta17")
+    add("kspCommonMainMetadata", kspRetrofit)
+    add("kspJvm", kspRetrofit)
+    add("kspAndroid", kspRetrofit)
+    add("kspJs", kspRetrofit)
 }

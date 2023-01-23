@@ -1,0 +1,23 @@
+build:
+  maxIssues: 0
+  weights:
+  # complexity: 2
+  # LongParameterList: 1
+  # style: 1
+  # comments: 1
+
+complexity:
+  active: true
+  LongParameterList:
+    active: false
+  TooManyFunctions:
+    active: false
+
+style:
+  MaxLineLength:
+    active: true
+    maxLineLength: 120
+    excludePackageStatements: true
+    excludeImportStatements: true
+    excludeCommentStatements: true
+    excludeRawStrings: true
