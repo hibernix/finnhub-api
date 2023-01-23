@@ -13,6 +13,10 @@ complexity:
   TooManyFunctions:
     active: false
 
+exceptions:
+  TooGenericExceptionCaught:
+    active: false
+
 style:
   MaxLineLength:
     active: true

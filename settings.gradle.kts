@@ -33,3 +33,4 @@ dependencyResolutionManagement {
 rootProject.name = "finnhub-api"
 
 include(":finnhub-api")
+include(":finnhub-websocket")

@@ -69,6 +69,7 @@ android {
         minSdk = 21
         targetSdk = 33
     }
+    namespace = "com.hibernix.finnhub.api"
 }
 
 val kspRetrofit = "de.jensklingenberg.ktorfit:ktorfit-ksp:$ktorfitVersion"
