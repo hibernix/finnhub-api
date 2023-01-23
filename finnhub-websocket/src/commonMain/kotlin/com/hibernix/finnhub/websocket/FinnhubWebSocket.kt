@@ -1,5 +1,7 @@
 package com.hibernix.finnhub.websocket
 
+import com.hibernix.finnhub.model.NewsItem
+import com.hibernix.finnhub.model.TradeItem
 import kotlinx.coroutines.flow.SharedFlow
 
 interface FinnhubWebSocket {
