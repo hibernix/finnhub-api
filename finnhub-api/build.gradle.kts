@@ -1,11 +1,11 @@
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
+    id("com.android.library")
     id("com.google.devtools.ksp")
     id("de.jensklingenberg.ktorfit")
     id("org.jetbrains.dokka")
     id("io.gitlab.arturbosch.detekt")
-    id("com.android.library")
     `maven-publish`
 }
 
@@ -66,7 +66,7 @@ kotlin {
 android {
     compileSdk = 33
     defaultConfig {
-        minSdk = 21
+        minSdk = 19
         targetSdk = 33
     }
     namespace = "com.hibernix.finnhub.api"

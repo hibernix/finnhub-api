@@ -1,6 +1,7 @@
 plugins {
     kotlin("multiplatform")
     kotlin("plugin.serialization")
+    id("com.android.library")
     id("io.gitlab.arturbosch.detekt")
     id("org.jetbrains.dokka")
     `maven-publish`
@@ -43,4 +44,13 @@ kotlin {
             }
         }
     }
+}
+
+android {
+    compileSdk = 33
+    defaultConfig {
+        minSdk = 19
+        targetSdk = 33
+    }
+    namespace = "com.hibernix.finnhub.api"
 }
