@@ -2,19 +2,22 @@
 
 [![Kotlin Beta](https://kotl.in/badges/beta.svg)](https://kotlinlang.org/docs/components-stability.html)
 [![Kotlin](https://img.shields.io/badge/kotlin-1.8.0-blue.svg?logo=kotlin)](http://kotlinlang.org)
-![badge-jvm](http://img.shields.io/badge/platform-jvm-DB413D.svg?style=flat)
-![badge-android](http://img.shields.io/badge/platform-android-6EDB8D.svg?style=flat)
-![badge-ios](http://img.shields.io/badge/platform-ios-CDCDCD.svg?style=flat)
-![badge-js](http://img.shields.io/badge/platform-js-F8DB5D.svg?style=flat)
-[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
+![badge][badge-jvm]
+![badge][badge-android]
+![badge][badge-ios]
+![badge][badge-mac]
+![badge][badge-linux]
+![badge][badge-windows]
+![badge][badge-js]
 <br>
-![badge-maven-central](https://img.shields.io/maven-central/v/com.hibernix.finnhub/finnhub-api?color=blue)
-![GitHub tag](https://img.shields.io/github/v/tag/hibernix/finnhub-api)
+![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/hibernix/finnhub-api)
+![Maven Central](https://img.shields.io/maven-central/v/com.hibernix.finnhub/finnhub-api?color=blue)
+![GitHub](https://img.shields.io/github/license/hibernix/finnhub-api?style=flat)
 
 Unofficial kotlin-multiplatform library for [Finnhub API](https://finnhub.io).
 Unlike the [official](https://github.com/Finnhub-Stock-API/finnhub-kotlin)  kotlin library, this one supports also
-WebSockets for real-time updates, uses kotlin coroutines and can be used on multiple platforms
-(currently supported for now are JVM (java), Android, IOS and web (JS / nodeJS)).
+WebSockets for real-time updates, uses kotlin coroutines and can be used on multiple platforms (currently android, ios,
+JVM, macos, windows, linux, web/JS).
 
 <i><b>Note:</b> Not all endpoints were tested yet, especially the premium ones, please feel free to open an issue
 or pull request, if any of the endpoints is not working or up-to-date.</i>
@@ -26,21 +29,23 @@ or pull request, if any of the endpoints is not working or up-to-date.</i>
 Add the finnhub-api dependencies in `build.gradle.kts` in your module.
 
 ```kotlin
-val finnhubApiVersion = "0.1.0-beta01"
+val finnhubApiVersion = "0.1.0"
+
 dependencies {
     implementation("com.hibernix.finnhub:finnhub-api-[PLATFORM]:$finnhubApiVersion") // for REST API
     implementation("com.hibernix.finnhub:finnhub-websocket-[PLATFORM]:$finnhubApiVersion") // for real-time updates
 }
 ```
 
-where `[PLATFORM]` is one of `jvm`, `android`, `ios`, `js`, depending on the platform you are using.
+replace `[PLATFORM]` with one of platfroms, depending on the platform you are using (e.g. `android` for Android)
 
 ### Multiplatform project / module
 
 Add the finnhub-api dependencies in `build.gradle.kts` in your multiplatform module.
 
 ```kotlin
-val finnhubApiVersion = "0.1.0-beta01"
+val finnhubApiVersion = "0.1.0"
+
 sourceSets {
     val commonMain by getting {
         dependencies {
@@ -111,3 +116,31 @@ Check some examples in samples folder (coming soon)
 - [ ] Examples
 - [ ] Tests
 - [ ] WebSocket ping and auto-reconnect
+
+[badge-android]: http://img.shields.io/badge/-android-6EDB8D.svg?style=flat
+
+[badge-android-native]: http://img.shields.io/badge/support-[AndroidNative]-6EDB8D.svg?style=flat
+
+[badge-jvm]: http://img.shields.io/badge/-jvm-DB413D.svg?style=flat
+
+[badge-js]: http://img.shields.io/badge/-js-F8DB5D.svg?style=flat
+
+[badge-js-ir]: https://img.shields.io/badge/support-[IR]-AAC4E0.svg?style=flat
+
+[badge-nodejs]: https://img.shields.io/badge/-nodejs-68a063.svg?style=flat
+
+[badge-linux]: http://img.shields.io/badge/-linux-2D3F6C.svg?style=flat
+
+[badge-windows]: http://img.shields.io/badge/-windows-4D76CD.svg?style=flat
+
+[badge-wasm]: https://img.shields.io/badge/-wasm-624FE8.svg?style=flat
+
+[badge-apple-silicon]: http://img.shields.io/badge/support-[AppleSilicon]-43BBFF.svg?style=flat
+
+[badge-ios]: http://img.shields.io/badge/-ios-CDCDCD.svg?style=flat
+
+[badge-mac]: http://img.shields.io/badge/-macos-111111.svg?style=flat&color=707070
+
+[badge-watchos]: http://img.shields.io/badge/-watchos-C0C0C0.svg?style=flat
+
+[badge-tvos]: http://img.shields.io/badge/-tvos-808080.svg?style=flat
