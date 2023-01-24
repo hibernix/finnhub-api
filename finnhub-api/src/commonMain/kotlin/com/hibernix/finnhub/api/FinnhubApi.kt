@@ -1614,6 +1614,7 @@ interface FinnhubApi {
                         }
                     }
                 }
+                .responseConverter(FinnhubRepsonseConverter())
                 .build().create()
     }
 }
