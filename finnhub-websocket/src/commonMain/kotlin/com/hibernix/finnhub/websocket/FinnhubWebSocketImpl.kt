@@ -89,7 +89,7 @@ internal class FinnhubWebSocketImpl(private val apiKey: String) : FinnhubWebSock
 
     private fun parseError(msg: String) {
         val error = json.decodeFromString(ErrorFrame.serializer(), msg)
-        onError(FinnhubException(error.msg ?: "Unknown finnhub error"))
+        onError(FinnhubWebsocketException(error.msg ?: "Unknown finnhub error"))
     }
 
     override fun disconnect() {

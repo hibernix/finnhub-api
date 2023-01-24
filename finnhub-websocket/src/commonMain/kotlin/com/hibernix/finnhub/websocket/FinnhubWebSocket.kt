@@ -34,7 +34,7 @@ interface FinnhubWebSocket {
     var onDisconnected: (Boolean) -> Unit
 
     /**
-     * Callback called when any error occurred. For finnhub error responses you will get [FinnhubException]
+     * Callback called when any error occurred. For finnhub error responses you will get [FinnhubWebsocketException]
      * with the received message. For all other errors the original exception will be emitted.
      */
     var onError: (Throwable) -> Unit
@@ -53,6 +53,15 @@ interface FinnhubWebSocket {
 
     /**
      * Subscribe to the trades.
+     *
+     * Stream real-time trades for US stocks, forex and crypto. Trades might not be available for some forex and crypto
+     * exchanges. In that case, a price update will be sent with volume = 0. A message can contain multiple trades.
+     * 1 API key can only open 1 connection at a time. Real-time US market data is provided by IEX. Cross-connect
+     * and real-time data for international markets are available for Enterprise clients via our partners.
+     * Contact us to learn more.
+     *
+     * The following FX brokers do not support streaming: FXCM, Forex.com.
+     * To get latest price for FX, please use the Forex Candles or All Rates endpoint.
      * @param symbol Ticker symbol for which the trade ticks should be received.
      */
     fun subscribeTrades(symbol: String)
@@ -65,6 +74,8 @@ interface FinnhubWebSocket {
 
     /**
      * Subscribe to the news.
+     *
+     * Stream real-time news for US and Canadian stocks.
      * @param symbol Ticker symbol for which the news should be received.
      */
     fun subscribeNews(symbol: String)

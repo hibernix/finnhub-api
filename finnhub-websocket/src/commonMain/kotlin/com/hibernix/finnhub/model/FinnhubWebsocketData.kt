@@ -3,6 +3,15 @@ package com.hibernix.finnhub.model
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+/**
+ * Tick representing a single trade.
+ * @property s Symbol
+ * @property p Last price
+ * @property t UNIX milisecond timestamp
+ * @property v Volume
+ * @property c List of trade conditions. A comprehensive list of trade conditions code can be found
+ * [here](https://docs.google.com/spreadsheets/d/1PUxiSWPHSODbaTaoL2Vef6DgU-yFtlRGZf19oBb9Hp0/edit?usp=sharing)
+ */
 @Serializable
 data class TradeItem(
     val s: String? = null,
@@ -12,6 +21,17 @@ data class TradeItem(
     val c: List<String>? = null,
 )
 
+/**
+ * @property category News category
+ * @property datetime Published time in UNIX timestamp
+ * @property headline News headline
+ * @property urlId News ID
+ * @property image Thumbnail image URL
+ * @property related Related stocks and companies mentioned in the article
+ * @property source News source
+ * @property summary News summary
+ * @property url URL of the original article
+ */
 @Serializable
 data class NewsItem(
     val category: String? = null,
@@ -21,6 +41,8 @@ data class NewsItem(
     val image: String? = null,
     val related: String? = null,
     val source: String? = null,
+    val summary: String? = null,
+    val url: String? = null,
 )
 
 @Serializable
