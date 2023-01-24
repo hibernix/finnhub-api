@@ -61,7 +61,7 @@ sourceSets {
 #### REST API:
 
 ```kotlin
- val finnhubApi = FinnhubApi.create(apiKey = "<finnhub API key>")
+ val finnhubApi = FinnhubApi.create(apiKey = "finnhub_api_key")
 
 scope.launch {
     // company profile
@@ -83,7 +83,7 @@ scope.launch {
 #### WebSocket:
 
 ```kotlin
-val ws = FinnhubWebSocket.create("finnhub API key")
+val ws = FinnhubWebSocket.create("finnhub_api_key")
 
 ws.onError = { error -> ... }
 ws.connect {
@@ -112,7 +112,6 @@ Check some examples in samples folder (coming soon)
 
 ## ToDo
 
-- [ ] Error response transformation for REST API
 - [ ] Examples
 - [ ] Tests
 - [ ] WebSocket ping and auto-reconnect
