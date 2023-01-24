@@ -7,6 +7,9 @@
 ![badge-ios](http://img.shields.io/badge/platform-ios-CDCDCD.svg?style=flat)
 ![badge-js](http://img.shields.io/badge/platform-js-F8DB5D.svg?style=flat)
 [![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
+<br>
+![badge-maven-central](https://img.shields.io/maven-central/v/com.hibernix.finnhub/finnhub-api?color=blue)
+![GitHub tag](https://img.shields.io/github/v/tag/hibernix/finnhub-api)
 
 Unofficial kotlin-multiplatform library for [Finnhub API](https://finnhub.io).
 Unlike the [official](https://github.com/Finnhub-Stock-API/finnhub-kotlin)  kotlin library, this one supports also
