@@ -7,6 +7,7 @@ plugins {
     id("org.jetbrains.dokka")
     id("io.gitlab.arturbosch.detekt")
     `maven-publish`
+    signing
 }
 
 val ktorVersion = extra["versions.ktor"]
@@ -89,6 +90,29 @@ val javadocJar = tasks.register<Jar>("javadocJar") {
 }
 
 publishing {
+    repositories {
+        maven {
+            name = "Oss"
+            setUrl {
+                val repositoryId =
+                    System.getenv("SONATYPE_REPOSITORY_ID") ?: error("Missing env variable: SONATYPE_REPOSITORY_ID")
+                //"https://oss.sonatype.org/service/local/staging/deployByRepositoryId/${repositoryId}/"
+                "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            }
+            credentials {
+                username = System.getenv("SONATYPE_USERNAME")
+                password = System.getenv("SONATYPE_PASSWORD")
+            }
+        }
+        maven {
+            name = "Snapshot"
+            setUrl { "https://oss.sonatype.org/content/repositories/snapshots/" }
+            credentials {
+                username = System.getenv("SONATYPE_USERNAME")
+                password = System.getenv("SONATYPE_PASSWORD")
+            }
+        }
+    }
     publications {
         withType<MavenPublication> {
             artifact(tasks["javadocJar"])
@@ -116,6 +140,14 @@ publishing {
             }
         }
     }
+}
+
+signing {
+    useInMemoryPgpKeys(
+        System.getenv("GPG_PRIVATE_KEY"),
+        System.getenv("GPG_PRIVATE_PASSWORD")
+    )
+    sign(publishing.publications)
 }
 
 val kspRetrofit = "de.jensklingenberg.ktorfit:ktorfit-ksp:$ktorfitVersion"

@@ -5,6 +5,7 @@ plugins {
     id("io.gitlab.arturbosch.detekt")
     id("org.jetbrains.dokka")
     `maven-publish`
+    signing
 }
 
 val coroutinesVersion = extra["versions.coroutines"]
@@ -67,6 +68,29 @@ val javadocJar = tasks.register<Jar>("javadocJar") {
 }
 
 publishing {
+    repositories {
+        maven {
+            name = "Oss"
+            setUrl {
+                val repositoryId =
+                    System.getenv("SONATYPE_REPOSITORY_ID") ?: error("Missing env variable: SONATYPE_REPOSITORY_ID")
+                //"https://oss.sonatype.org/service/local/staging/deployByRepositoryId/${repositoryId}/"
+                "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            }
+            credentials {
+                username = System.getenv("SONATYPE_USERNAME")
+                password = System.getenv("SONATYPE_PASSWORD")
+            }
+        }
+        maven {
+            name = "Snapshot"
+            setUrl { "https://oss.sonatype.org/content/repositories/snapshots/" }
+            credentials {
+                username = System.getenv("SONATYPE_USERNAME")
+                password = System.getenv("SONATYPE_PASSWORD")
+            }
+        }
+    }
     publications {
         withType<MavenPublication> {
             artifact(tasks["javadocJar"])
@@ -88,13 +112,21 @@ publishing {
                 }
                 developers {
                     developer {
-                        name.set("Hibernix s.r.o.")
+                        name.set("hibernix")
                         url.set("https://hibernix.com")
                     }
                 }
             }
         }
     }
+}
+
+signing {
+    useInMemoryPgpKeys(
+        System.getenv("GPG_PRIVATE_KEY"),
+        System.getenv("GPG_PRIVATE_PASSWORD")
+    )
+    sign(publishing.publications)
 }
 
 android {
