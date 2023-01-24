@@ -37,7 +37,20 @@ kotlin {
     android {
         publishLibraryVariants("release"/*, "debug"*/)
     }
-    js {
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+    ios("ios") {
+        binaries {
+            framework {
+                baseName = "library"
+            }
+        }
+    }
+    macosX64()
+    mingwX64()
+    linuxX64()
+    js(IR) {
         browser()
         nodejs()
     }
@@ -155,5 +168,11 @@ dependencies {
     add("kspCommonMainMetadata", kspRetrofit)
     add("kspJvm", kspRetrofit)
     add("kspAndroid", kspRetrofit)
+    add("kspIosX64", kspRetrofit)
+    add("kspIosArm64", kspRetrofit)
+    add("kspIosSimulatorArm64", kspRetrofit)
     add("kspJs", kspRetrofit)
+    add("kspMacosX64", kspRetrofit)
+    add("kspMingwX64", kspRetrofit)
+    add("kspLinuxX64", kspRetrofit)
 }

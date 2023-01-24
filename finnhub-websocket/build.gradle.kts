@@ -34,7 +34,26 @@ kotlin {
     android {
         publishLibraryVariants("release"/*, "debug"*/)
     }
-    js {
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
+    ios("ios") {
+        binaries {
+            framework {
+                baseName = "library"
+            }
+        }
+    }
+    macosX64()
+    mingwX64()
+    linuxX64 {
+        /*
+                binaries {
+                    executable()
+                }
+        */
+    }
+    js(IR) {
         browser()
         nodejs()
     }

@@ -16,6 +16,8 @@ complexity:
 exceptions:
   TooGenericExceptionCaught:
     active: false
+  SwallowedException:
+    active: false
 
 style:
   MaxLineLength:
