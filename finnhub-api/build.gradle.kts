@@ -137,7 +137,7 @@ publishing {
                 licenses {
                     license {
                         name.set("Apache License 2.0")
-                        url.set("https://github.com/Foso/Ktorfit/blob/master/LICENSE.txt")
+                        url.set("https://github.com/hibernix/finnhub-api/blob/main/LICENSE")
                     }
                 }
                 scm {
