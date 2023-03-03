@@ -18,7 +18,7 @@ pluginManagement {
         id("de.jensklingenberg.ktorfit") version "1.0.0" apply false
         id("com.android.library") version "7.4.0" apply false
         id("org.jetbrains.kotlin.android") version "1.8.10" apply false
-        id("com.github.ben-manes.versions") version "0.45.0" apply false
+        id("com.github.ben-manes.versions") version "0.46.0" apply false
         //id("com.vanniktech.maven.publish") version "0.23.2" apply false
     }
 }
