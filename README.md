@@ -28,7 +28,7 @@ or pull request, if any of the endpoints is not working or up-to-date.</i>
 Add the finnhub-api dependencies in `build.gradle.kts` in your module.
 
 ```kotlin
-val finnhubApiVersion = "0.1.0"
+val finnhubApiVersion = "0.2.0"
 
 dependencies {
     implementation("com.hibernix.finnhub:finnhub-api-[PLATFORM]:$finnhubApiVersion") // for REST API
@@ -43,7 +43,7 @@ replace `[PLATFORM]` with one of platfroms, depending on the platform you are us
 Add the finnhub-api dependencies in `build.gradle.kts` in your multiplatform module.
 
 ```kotlin
-val finnhubApiVersion = "0.1.0"
+val finnhubApiVersion = "0.2.0"
 
 sourceSets {
     val commonMain by getting {
